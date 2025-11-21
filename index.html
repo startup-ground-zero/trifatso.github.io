@@ -1175,6 +1175,650 @@
             line-height: 1.6;
             color: var(--grey);
         }
+
+        /* Reviews Section */
+        .reviews-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .review-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 3px solid var(--orange);
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .review-rating {
+            color: var(--orange);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .review-text {
+            color: var(--grey);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .review-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .review-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--orange), var(--light-red));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .review-author-info h4 {
+            color: var(--dark-grey);
+            font-size: 1.1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .review-author-info p {
+            color: var(--grey);
+            font-size: 0.9rem;
+        }
+
+        /* Instagram Feed Section */
+        .instagram-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media (max-width: 900px) {
+            .instagram-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .instagram-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .instagram-item {
+            position: relative;
+            height: 250px;
+            background: var(--light-grey);
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .instagram-item:hover {
+            transform: scale(1.05);
+        }
+
+        .instagram-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .instagram-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            padding: 1rem;
+            color: white;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .instagram-item:hover .instagram-overlay {
+            opacity: 1;
+        }
+
+        /* Special Offers Section */
+        .offers-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .offer-card {
+            background: linear-gradient(135deg, var(--orange) 0%, var(--light-red) 100%);
+            color: white;
+            padding: 2.5rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(212, 135, 111, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .offer-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-30%, -30%); }
+        }
+
+        .offer-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(212, 135, 111, 0.4);
+        }
+
+        .offer-badge {
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--orange);
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .offer-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .offer-card p {
+            font-size: 1.05rem;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+
+        /* Newsletter Section */
+        .newsletter-container {
+            max-width: 600px;
+            margin: 2rem auto;
+            background: var(--white);
+            padding: 3rem 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .newsletter-container h3 {
+            font-size: 2rem;
+            color: var(--dark-grey);
+            margin-bottom: 1rem;
+        }
+
+        .newsletter-container p {
+            color: var(--grey);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            border: 2px solid var(--light-grey);
+            border-radius: 50px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .newsletter-form input:focus {
+            outline: none;
+            border-color: var(--orange);
+        }
+
+        .newsletter-form button {
+            padding: 1rem 2.5rem;
+            background: var(--orange);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .newsletter-form button:hover {
+            background: var(--light-red);
+            transform: scale(1.05);
+        }
+
+        /* Opening Hours Section */
+        .hours-container {
+            max-width: 700px;
+            margin: 2rem auto;
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .hours-status {
+            text-align: center;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, var(--orange), var(--light-red));
+            color: white;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .hours-list {
+            list-style: none;
+        }
+
+        .hours-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--light-grey);
+        }
+
+        .hours-item:last-child {
+            border-bottom: none;
+        }
+
+        .hours-day {
+            color: var(--dark-grey);
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+
+        .hours-time {
+            color: var(--grey);
+            font-size: 1.1rem;
+        }
+
+        .hours-item.today {
+            background: var(--cream);
+            padding: 1rem;
+            margin: 0 -1rem;
+            border-radius: 8px;
+        }
+
+        .hours-item.today .hours-day {
+            color: var(--orange);
+            font-weight: 600;
+        }
+
+        /* FAQ Section */
+        .faq-container {
+            max-width: 800px;
+            margin: 2rem auto;
+        }
+
+        .faq-item {
+            background: var(--white);
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--white);
+            transition: background 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: var(--cream);
+        }
+
+        .faq-question h3 {
+            color: var(--dark-grey);
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin: 0;
+        }
+
+        .faq-toggle {
+            color: var(--orange);
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+            font-weight: 300;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            background: var(--cream);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+            padding: 1.5rem;
+        }
+
+        .faq-answer p {
+            color: var(--grey);
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* Philosophy Section */
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .philosophy-card {
+            text-align: center;
+            padding: 2rem;
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .philosophy-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .philosophy-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .philosophy-card h3 {
+            color: var(--dark-grey);
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .philosophy-card p {
+            color: var(--grey);
+            line-height: 1.6;
+        }
+
+        /* Coffee Story Section */
+        .coffee-story-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+            align-items: center;
+        }
+
+        .coffee-story-text h3 {
+            color: var(--orange);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .coffee-story-text p {
+            color: var(--grey);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .coffee-story-image {
+            width: 100%;
+            height: 400px;
+            background: var(--beige);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--grey);
+            font-style: italic;
+        }
+
+        .coffee-story-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Private Events Section */
+        .events-info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .events-details {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .events-details h3 {
+            color: var(--orange);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .events-features {
+            list-style: none;
+        }
+
+        .events-features li {
+            padding: 0.8rem 0;
+            color: var(--grey);
+            font-size: 1.05rem;
+            border-bottom: 1px solid var(--light-grey);
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .events-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--orange);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .events-features li:last-child {
+            border-bottom: none;
+        }
+
+        .events-image {
+            width: 100%;
+            height: 100%;
+            background: var(--beige);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--grey);
+            font-style: italic;
+        }
+
+        .events-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Before/After Slider */
+        #transformation {
+            min-height: 600px !important;
+            padding: 5rem 10% !important;
+            background: var(--cream) !important;
+        }
+
+        .comparison-slider {
+            position: relative;
+            max-width: 800px;
+            width: 100%;
+            margin: 3rem auto;
+            height: 500px;
+            min-height: 500px;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            background: #cccccc;
+        }
+
+        .comparison-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .comparison-before {
+            background: linear-gradient(135deg, #F5DEB3 0%, #D2B48C 50%, #8B6F47 100%);
+            background-image: url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&h=500&fit=crop');
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+        }
+
+        .comparison-after {
+            clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+            background: linear-gradient(135deg, #1a0a2e 0%, #16213e 40%, #533483 100%);
+            background-image: url('https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&h=500&fit=crop');
+            background-size: cover;
+            background-position: center;
+            z-index: 2;
+        }
+
+        .comparison-slider-handle {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 4px;
+            height: 100%;
+            background: white;
+            cursor: ew-resize;
+            transform: translateX(-50%);
+            z-index: 10;
+        }
+
+        .comparison-slider-handle::before {
+            content: '⇄';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            font-size: 1.5rem;
+            color: var(--dark-grey);
+        }
+
+        .comparison-labels {
+            position: absolute;
+            top: 20px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 2rem;
+            pointer-events: none;
+        }
+
+        .comparison-label {
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .coffee-story-content,
+            .events-info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-slider {
+                height: 300px;
+            }
+
+            .philosophy-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .reviews-container {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1189,6 +1833,9 @@
         <ul class="nav-links" id="navLinks">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
+            <li><a href="#philosophy">Philosophy</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#offers">Offers</a></li>
             <li><a href="#team">Faces</a></li>
             <li><a href="#gallery">Gallery</a></li>
             <li><a href="#" onclick="openEvents(); return false;">Events</a></li>
@@ -1236,6 +1883,373 @@
                 <!-- Add your cafe photo here -->
                 <img src="trifatso_three_guys.jpg" alt="The three founders of τριφατσο cafe in Athens" loading="lazy">
             </div>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section id="philosophy" style="background: var(--cream);">
+        <h2 class="section-title">Our Philosophy</h2>
+        <p class="section-subtitle">What we believe in</p>
+        
+        <div class="philosophy-grid">
+            <div class="philosophy-card">
+                <div class="philosophy-icon">☕</div>
+                <h3>Quality First</h3>
+                <p>Every cup is crafted with precision and passion. We never compromise on quality, from bean selection to the final pour.</p>
+            </div>
+            
+            <div class="philosophy-card">
+                <div class="philosophy-icon">🤝</div>
+                <h3>Community</h3>
+                <p>τρίφατσο is more than a cafe - it's a gathering place where strangers become friends and friends become family.</p>
+            </div>
+            
+            <div class="philosophy-card">
+                <div class="philosophy-icon">🌱</div>
+                <h3>Sustainability</h3>
+                <p>We're committed to ethical sourcing, minimal waste, and supporting local suppliers who share our values.</p>
+            </div>
+            
+            <div class="philosophy-card">
+                <div class="philosophy-icon">✨</div>
+                <h3>Authenticity</h3>
+                <p>No pretense, no gimmicks - just genuine hospitality, honest ingredients, and real connections.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coffee Story Section -->
+    <section id="coffee-story" style="background: var(--white);">
+        <h2 class="section-title">Our Coffee Story</h2>
+        <p class="section-subtitle">From bean to cup - a journey of quality</p>
+        
+        <div class="coffee-story-content">
+            <div class="coffee-story-text">
+                <h3>Carefully Sourced, Expertly Crafted</h3>
+                <p>
+                    At τρίφατσο, coffee is an art form. We partner with select roasters who share our commitment 
+                    to excellence, sourcing single-origin beans from ethical farms around the world.
+                </p>
+                <p>
+                    Our baristas are trained artisans, masters of extraction and temperature, who understand that 
+                    every bean has a story to tell. From the highlands of Ethiopia to the mountains of Colombia, 
+                    we bring you flavors that celebrate their origin.
+                </p>
+                <p>
+                    We roast in small batches to ensure maximum freshness, and every espresso shot is pulled with 
+                    precision timing. The result? A cup that honors the farmer, the roaster, and most importantly - you.
+                </p>
+            </div>
+            <div class="coffee-story-image">
+                <span>Coffee beans & brewing process photo</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Before/After Transformation Slider -->
+    <section id="transformation" style="background: var(--cream);">
+        <h2 class="section-title">Day to Night Transformation</h2>
+        <p class="section-subtitle">Drag the slider to see our space transform</p>
+        
+        <div class="comparison-slider" id="comparisonSlider">
+            <div class="comparison-labels">
+                <span class="comparison-label">☀️ Morning Coffee</span>
+                <span class="comparison-label">🌙 Night Cocktails</span>
+            </div>
+            <div class="comparison-image comparison-before"></div>
+            <div class="comparison-image comparison-after" id="afterImage"></div>
+            <div class="comparison-slider-handle" id="sliderHandle"></div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" style="background: var(--white);">
+        <h2 class="section-title">What Our Guests Say</h2>
+        <p class="section-subtitle">Real reviews from real people</p>
+        
+        <div class="reviews-container">
+            <div class="review-card">
+                <div class="review-rating">★★★★★</div>
+                <p class="review-text">
+                    "The best coffee in Athens, hands down! The atmosphere is perfect for both working and socializing. 
+                    The three founders really care about every detail."
+                </p>
+                <div class="review-author">
+                    <div class="review-avatar">SK</div>
+                    <div class="review-author-info">
+                        <h4>Sofia Karas</h4>
+                        <p>Regular Customer</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="review-card">
+                <div class="review-rating">★★★★★</div>
+                <p class="review-text">
+                    "Amazing cocktails and the Sunday DJ nights are incredible! Perfect spot for after-work drinks. 
+                    The vibe transforms from cozy cafe to vibrant bar seamlessly."
+                </p>
+                <div class="review-author">
+                    <div class="review-avatar">AP</div>
+                    <div class="review-author-info">
+                        <h4>Alex Papadopoulos</h4>
+                        <p>Weekend Warrior</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="review-card">
+                <div class="review-rating">★★★★★</div>
+                <p class="review-text">
+                    "My go-to spot for morning coffee and laptop work. Fast WiFi, comfortable seating, and the staff 
+                    remembers my order. Feels like a second home!"
+                </p>
+                <div class="review-author">
+                    <div class="review-avatar">MN</div>
+                    <div class="review-author-info">
+                        <h4>Maria Nikolaou</h4>
+                        <p>Digital Nomad</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Offers Section -->
+    <section id="offers" style="background: var(--cream);">
+        <h2 class="section-title">Special Offers</h2>
+        <p class="section-subtitle">Don't miss out on these amazing deals</p>
+        
+        <div class="offers-container">
+            <div class="offer-card">
+                <span class="offer-badge">HAPPY HOUR</span>
+                <h3>2-for-1 Cocktails</h3>
+                <p>Every weekday from 17:00-19:00<br>Buy one cocktail, get one free!</p>
+            </div>
+            
+            <div class="offer-card">
+                <span class="offer-badge">STUDENT DEAL</span>
+                <h3>20% Off All Day</h3>
+                <p>Show your student ID<br>Valid Monday-Friday</p>
+            </div>
+            
+            <div class="offer-card">
+                <span class="offer-badge">BIRTHDAY SPECIAL</span>
+                <h3>Free Dessert</h3>
+                <p>Celebrate your birthday month with us<br>Complimentary dessert with any order</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Opening Hours Section -->
+    <section id="hours" style="background: var(--white);">
+        <h2 class="section-title">Opening Hours</h2>
+        <p class="section-subtitle">Come visit us</p>
+        
+        <div class="hours-container">
+            <div class="hours-status">
+                🟢 OPEN NOW - Closes at 12:00 AM
+            </div>
+            <ul class="hours-list">
+                <li class="hours-item">
+                    <span class="hours-day">Monday</span>
+                    <span class="hours-time">08:00 - 24:00</span>
+                </li>
+                <li class="hours-item">
+                    <span class="hours-day">Tuesday</span>
+                    <span class="hours-time">08:00 - 24:00</span>
+                </li>
+                <li class="hours-item today">
+                    <span class="hours-day">Wednesday (Today)</span>
+                    <span class="hours-time">08:00 - 24:00</span>
+                </li>
+                <li class="hours-item">
+                    <span class="hours-day">Thursday</span>
+                    <span class="hours-time">08:00 - 24:00</span>
+                </li>
+                <li class="hours-item">
+                    <span class="hours-day">Friday</span>
+                    <span class="hours-time">08:00 - 02:00</span>
+                </li>
+                <li class="hours-item">
+                    <span class="hours-day">Saturday</span>
+                    <span class="hours-time">09:00 - 02:00</span>
+                </li>
+                <li class="hours-item">
+                    <span class="hours-day">Sunday</span>
+                    <span class="hours-time">09:00 - 02:00</span>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Instagram Feed Section -->
+    <section id="instagram" style="background: var(--cream);">
+        <h2 class="section-title">Follow Our Journey</h2>
+        <p class="section-subtitle">@trifatso on Instagram</p>
+        
+        <div class="instagram-grid">
+            <div class="instagram-item">
+                <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=400&h=400&fit=crop" alt="τριφατσο Instagram post" loading="lazy">
+                <div class="instagram-overlay">
+                    <p>Morning vibes ☕</p>
+                </div>
+            </div>
+            <div class="instagram-item">
+                <img src="https://images.unsplash.com/photo-1545665225-b23b99e4d45e?w=400&h=400&fit=crop" alt="τριφατσο Instagram post" loading="lazy">
+                <div class="instagram-overlay">
+                    <p>Fresh brews daily 🌟</p>
+                </div>
+            </div>
+            <div class="instagram-item">
+                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&h=400&fit=crop" alt="τριφατσο Instagram post" loading="lazy">
+                <div class="instagram-overlay">
+                    <p>Cozy corner 📚</p>
+                </div>
+            </div>
+            <div class="instagram-item">
+                <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=400&h=400&fit=crop" alt="τριφατσο Instagram post" loading="lazy">
+                <div class="instagram-overlay">
+                    <p>Espresso perfection ☕</p>
+                </div>
+            </div>
+            <div class="instagram-item">
+                <img src="https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?w=400&h=400&fit=crop" alt="τριφατσο Instagram post" loading="lazy">
+                <div class="instagram-overlay">
+                    <p>Cocktail hour 🍸</p>
+                </div>
+            </div>
+            <div class="instagram-item">
+                <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=400&h=400&fit=crop" alt="τριφατσο Instagram post" loading="lazy">
+                <div class="instagram-overlay">
+                    <p>Coffee art 🎨</p>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 2rem;">
+            <a href="https://www.instagram.com/trifatso/" target="_blank" style="display: inline-block; padding: 1rem 3rem; background: var(--orange); color: white; text-decoration: none; border-radius: 50px; font-weight: 600; transition: transform 0.3s ease;">
+                Follow Us on Instagram
+            </a>
+        </div>
+    </section>
+
+    <!-- Private Events Section -->
+    <section id="private-events" style="background: var(--white);">
+        <h2 class="section-title">Private Events</h2>
+        <p class="section-subtitle">Host your special occasion with us</p>
+        
+        <div class="events-info-grid">
+            <div class="events-details">
+                <h3>Perfect for Your Celebration</h3>
+                <p style="color: var(--grey); margin-bottom: 2rem; line-height: 1.7;">
+                    Whether it's a birthday, corporate gathering, or intimate celebration, τρίφατσο provides 
+                    the perfect backdrop. We'll work with you to create a memorable experience.
+                </p>
+                <ul class="events-features">
+                    <li>Capacity up to 50 guests</li>
+                    <li>Custom menu options available</li>
+                    <li>Full bar service with signature cocktails</li>
+                    <li>DJ setup & sound system</li>
+                    <li>Flexible timing & decorations</li>
+                    <li>Dedicated event coordinator</li>
+                </ul>
+                <div style="margin-top: 2rem;">
+                    <a href="mailto:trifatsoathens@gmail.com?subject=Private Event Inquiry" style="display: inline-block; padding: 1rem 2rem; background: var(--grey); color: white; text-decoration: none; border-radius: 50px; font-weight: 600;">
+                        Request Event Info
+                    </a>
+                </div>
+            </div>
+            <div class="events-image">
+                <span>Private event photo</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" style="background: var(--cream);">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-subtitle">Everything you need to know</p>
+        
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <h3>Do you have WiFi?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! We offer free high-speed WiFi to all our guests. Perfect for remote work or catching up on emails.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <h3>Can I work from here with my laptop?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Absolutely! We love our laptop warriors. Comfortable seating, power outlets, and great coffee make τρίφατσο ideal for remote work.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <h3>Do you take reservations?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We accept reservations for groups of 6 or more, and for all private events. Email us at trifatsoathens@gmail.com or click the "Book a Table" button.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <h3>Do you have vegan/vegetarian options?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! We offer plant-based milk alternatives (oat, almond, soy) and have vegan snack options. Just ask our staff!</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <h3>What's the Sunday DJ event?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Every Sunday we host live DJ sets starting at 8pm. Great music, amazing atmosphere, and special drink offers. Come experience τρίφατσο's night vibe!</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <h3>Is there parking nearby?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, there's street parking on Ευτυχίδου and surrounding streets. The area is also well-connected by public transport.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section id="newsletter" style="background: var(--white);">
+        <h2 class="section-title">Join the τρίφατσο Family</h2>
+        <p class="section-subtitle">Get exclusive updates, offers, and event invites</p>
+        
+        <div class="newsletter-container">
+            <h3>Stay Connected</h3>
+            <p>Be the first to know about new menu items, special events, and exclusive offers delivered straight to your inbox.</p>
+            <form class="newsletter-form" action="https://formsubmit.co/trifatsoathens@gmail.com" method="POST">
+                <input type="hidden" name="_subject" value="Newsletter Subscription - τρίφατσο">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="email" name="email" placeholder="Enter your email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+            <p style="font-size: 0.9rem; color: var(--grey); margin-top: 1rem;">
+                We respect your privacy. Unsubscribe anytime.
+            </p>
         </div>
     </section>
 
@@ -1678,6 +2692,127 @@
             
             images.forEach(img => imageObserver.observe(img));
         }
+
+        // FAQ Toggle
+        function toggleFAQ(element) {
+            const faqItem = element.parentElement;
+            const wasActive = faqItem.classList.contains('active');
+            
+            // Close all FAQ items
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Open clicked item if it wasn't active
+            if (!wasActive) {
+                faqItem.classList.add('active');
+            }
+        }
+
+        // Before/After Slider
+        const slider = document.getElementById('comparisonSlider');
+        const handle = document.getElementById('sliderHandle');
+        const afterImage = document.getElementById('afterImage');
+
+        if (slider && handle && afterImage) {
+            let isDragging = false;
+
+            function updateSlider(x) {
+                const rect = slider.getBoundingClientRect();
+                const position = Math.max(0, Math.min(x - rect.left, rect.width));
+                const percentage = (position / rect.width) * 100;
+                
+                handle.style.left = percentage + '%';
+                afterImage.style.clipPath = `polygon(0 0, ${percentage}% 0, ${percentage}% 100%, 0 100%)`;
+            }
+
+            handle.addEventListener('mousedown', () => {
+                isDragging = true;
+            });
+
+            document.addEventListener('mousemove', (e) => {
+                if (isDragging) {
+                    updateSlider(e.clientX);
+                }
+            });
+
+            document.addEventListener('mouseup', () => {
+                isDragging = false;
+            });
+
+            slider.addEventListener('click', (e) => {
+                updateSlider(e.clientX);
+            });
+
+            // Touch support for mobile
+            handle.addEventListener('touchstart', () => {
+                isDragging = true;
+            });
+
+            document.addEventListener('touchmove', (e) => {
+                if (isDragging && e.touches.length > 0) {
+                    updateSlider(e.touches[0].clientX);
+                }
+            });
+
+            document.addEventListener('touchend', () => {
+                isDragging = false;
+            });
+        }
+
+        // Update opening hours status dynamically
+        function updateHoursStatus() {
+            const now = new Date();
+            const day = now.getDay();
+            const hour = now.getHours();
+            const minute = now.getMinutes();
+            const currentTime = hour + minute / 60;
+
+            // Define hours (0 = Sunday, 1 = Monday, etc.)
+            const hours = {
+                1: { open: 8, close: 24, name: 'Monday' },
+                2: { open: 8, close: 24, name: 'Tuesday' },
+                3: { open: 8, close: 24, name: 'Wednesday' },
+                4: { open: 8, close: 24, name: 'Thursday' },
+                5: { open: 8, close: 26, name: 'Friday' }, // 26 = 2am next day
+                6: { open: 9, close: 26, name: 'Saturday' },
+                0: { open: 9, close: 26, name: 'Sunday' }
+            };
+
+            const todayHours = hours[day];
+            const statusElement = document.querySelector('.hours-status');
+            
+            if (statusElement) {
+                if (currentTime >= todayHours.open && currentTime < todayHours.close) {
+                    const closingHour = todayHours.close > 24 ? todayHours.close - 24 : todayHours.close;
+                    const closingTime = closingHour === 24 ? '12:00 AM' : 
+                                      closingHour === 26 ? '02:00 AM' :
+                                      closingHour + ':00 ' + (closingHour < 12 ? 'AM' : 'PM');
+                    statusElement.innerHTML = `🟢 OPEN NOW - Closes at ${closingTime}`;
+                    statusElement.style.background = 'linear-gradient(135deg, #4CAF50, #45a049)';
+                } else {
+                    statusElement.innerHTML = '🔴 CLOSED - See hours below';
+                    statusElement.style.background = 'linear-gradient(135deg, #9E9E9E, #757575)';
+                }
+            }
+
+            // Highlight today in the hours list
+            const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            const todayName = dayNames[day];
+            
+            document.querySelectorAll('.hours-item').forEach(item => {
+                item.classList.remove('today');
+                if (item.querySelector('.hours-day').textContent.includes(todayName)) {
+                    item.classList.add('today');
+                    item.querySelector('.hours-day').textContent = todayName + ' (Today)';
+                }
+            });
+        }
+
+        // Call on page load
+        updateHoursStatus();
+        // Update every minute
+        setInterval(updateHoursStatus, 60000);
 
     </script>
 </body>
