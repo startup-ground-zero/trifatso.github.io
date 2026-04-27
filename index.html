@@ -1,2997 +1,912 @@
-﻿<!DOCTYPE html>
-<html lang="el">
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>τριϕατσο - Cafe Shop | Coffee & Cocktails in Athens</title>
-    <meta name="description" content="τριϕατσο - A unique cafe in Athens offering premium coffee, cocktails, and live events. Three faces, one place, pure taste.">
-    <meta name="keywords" content="cafe Athens, coffee shop, cocktails, live events, τριϕατσο, trifatso">
-    <meta name="author" content="τριϕατσο">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="τριϕατσο - Cafe Shop">
-    <meta property="og:description" content="Three faces | One place | Pure taste. Premium coffee, cocktails, and live events in Athens.">
-    <meta property="og:image" content="logo - Copy.jpg">
-    
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:title" content="τριϕατσο - Cafe Shop">
-    <meta property="twitter:description" content="Three faces | One place | Pure taste">
-    
-    <!-- Preload critical resources -->
-    <link rel="preload" href="logo - Copy.jpg" as="image">
-    
-    <!-- Google Fonts for better Greek characters -->
+    <meta name="description" content="Artermision — A premium wellness hospitality destination in Aidipsos, Evia, Greece. Wellness in Every Stay.">
+    <title>Artermision — Wellness in Every Stay</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
-    
-    <!-- Theme color -->
-    <meta name="theme-color" content="#E8DCC4">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --beige: #E8DCC4;
-            --grey: #6B6B6B;
-            --dark-grey: #4A4A4A;
-            --light-grey: #D3D3D3;
-            --orange: #D4876F;
-            --light-red: #C17F6F;
-            --cream: #F5F0E8;
-            --white: #FFFFFF;
-        }
-
-        body {
-            font-family: 'Georgia', 'Times New Roman', serif;
-            color: var(--dark-grey);
-            background-color: var(--cream);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            padding: 1rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-        }
-
-        .nav-logo {
-            font-size: 1.5rem;
-            color: var(--dark-grey);
-            font-weight: 400;
-            letter-spacing: 1px;
-            font-family: 'Noto Serif', 'Georgia', 'Times New Roman', serif;
-            font-style: italic;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2.5rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--grey);
-            font-size: 1rem;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a:hover {
-            color: var(--orange);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--orange);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(135deg, var(--cream) 0%, var(--beige) 100%);
-            padding-top: 80px;
-        }
-
-        .logo-container {
-            max-width: 500px;
-            width: 90%;
-            margin-bottom: 2rem;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .logo-container img {
-            width: 100%;
-            height: auto;
-            filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.1));
-        }
-
-        .hero-text {
-            text-align: center;
-            animation: fadeInUp 1s ease-out 0.3s both;
-        }
-
-        .hero-text h1 {
-            font-size: 3rem;
-            color: var(--dark-grey);
-            margin-bottom: 1rem;
-            font-weight: 300;
-            letter-spacing: 3px;
-        }
-
-        .hero-text p {
-            font-size: 2rem;
-            color: var(--grey);
-            font-style: italic;
-            font-weight: 400;
-            letter-spacing: 3px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Section Styling */
-        section {
-            padding: 5rem 10%;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            color: var(--dark-grey);
-            margin-bottom: 1rem;
-            text-align: center;
-            font-weight: 300;
-            letter-spacing: 2px;
-            position: relative;
-            padding-bottom: 1rem;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: linear-gradient(90deg, var(--orange), var(--light-red));
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: var(--grey);
-            font-size: 1.1rem;
-            margin-bottom: 3rem;
-            font-style: italic;
-        }
-
-        /* About Section */
-        #about {
-            background: var(--white);
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-            margin-top: 2rem;
-        }
-
-        .about-text {
-            padding: 2rem;
-        }
-
-        .about-text h3 {
-            font-size: 1.8rem;
-            color: var(--orange);
-            margin-bottom: 1rem;
-            font-weight: 400;
-        }
-
-        .about-text p {
-            font-size: 1.1rem;
-            color: var(--grey);
-            margin-bottom: 1.5rem;
-            text-align: justify;
-            line-height: 1.8;
-        }
-
-        .about-image {
-            width: 100%;
-            height: 500px;
-            background: var(--beige);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--grey);
-            font-size: 1.2rem;
-            font-style: italic;
-        }
-
-        .about-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            background: var(--white);
-        }
-
-        /* Optimize image loading */
-        img {
-            image-rendering: -webkit-optimize-contrast;
-            image-rendering: crisp-edges;
-        }
-
-        img[loading="lazy"] {
-            background: var(--light-grey);
-        }
-
-        /* Gallery Section */
-        #gallery {
-            background: var(--white);
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .gallery-item {
-            height: 300px;
-            background: var(--light-grey);
-            border-radius: 10px;
-            overflow: hidden;
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--grey);
-            font-style: italic;
-        }
-
-        .gallery-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* Lightbox Modal */
-        .lightbox {
-            display: none;
-            position: fixed;
-            z-index: 9999;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-            align-items: center;
-            justify-content: center;
-        }
-
-        .lightbox.active {
-            display: flex;
-        }
-
-        .lightbox-content {
-            max-width: 90%;
-            max-height: 90%;
-            object-fit: contain;
-            border-radius: 10px;
-            box-shadow: 0 0 50px rgba(255, 255, 255, 0.2);
-        }
-
-        .lightbox-close {
-            position: absolute;
-            top: 30px;
-            right: 50px;
-            font-size: 50px;
-            color: white;
-            cursor: pointer;
-            transition: color 0.3s ease;
-            font-weight: 300;
-        }
-
-        .lightbox-close:hover {
-            color: var(--orange);
-        }
-
-        /* Menu Modal */
-        .menu-modal {
-            display: none;
-            position: fixed;
-            z-index: 10000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(3px);
-            overflow-y: auto;
-            padding: 3rem;
-            animation: fadeIn 0.3s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .menu-modal.active {
-            display: block;
-        }
-
-        .menu-content {
-            background: rgba(74, 74, 74, 0.95);
-            max-width: 1000px;
-            margin: 2rem auto;
-            padding: 4rem 3rem;
-            border-radius: 20px;
-            position: relative;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .menu-close {
-            position: absolute;
-            top: 25px;
-            right: 35px;
-            font-size: 35px;
-            color: var(--light-grey);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 300;
-            line-height: 1;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .menu-close:hover {
-            color: white;
-            background: var(--orange);
-            transform: rotate(90deg);
-        }
-
-        .menu-content h2 {
-            font-size: 3.5rem;
-            color: var(--cream);
-            text-align: center;
-            margin-bottom: 1rem;
-            font-weight: 300;
-            letter-spacing: 3px;
-            font-style: italic;
-        }
-
-        .menu-content .menu-subtitle {
-            text-align: center;
-            color: var(--light-grey);
-            font-size: 1.1rem;
-            margin-bottom: 3rem;
-            font-style: italic;
-        }
-
-        .menu-categories {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2.5rem;
-            margin-top: 2rem;
-        }
-
-        .menu-category {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 2.5rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-            border-top: 3px solid var(--orange);
-        }
-
-        .menu-category:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .menu-category h3 {
-            font-size: 2rem;
-            color: var(--dark-grey);
-            margin-bottom: 1.5rem;
-            font-weight: 500;
-            letter-spacing: 1px;
-            position: relative;
-            padding-bottom: 0.8rem;
-        }
-
-        .menu-category h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 2px;
-            background: var(--orange);
-        }
-
-        .menu-items {
-            list-style: none;
-        }
-
-        .menu-items li {
-            padding: 0.9rem 0;
-            color: var(--grey);
-            font-size: 1.05rem;
-            border-bottom: 1px solid rgba(211, 211, 211, 0.3);
-            transition: all 0.2s ease;
-            position: relative;
-            padding-left: 1.5rem;
-        }
-
-        .menu-items li::before {
-            content: '•';
-            position: absolute;
-            left: 0;
-            color: var(--orange);
-            font-weight: bold;
-        }
-
-        .menu-items li:hover {
-            color: var(--dark-grey);
-            padding-left: 2rem;
-        }
-
-        .menu-items li:last-child {
-            border-bottom: none;
-        }
-
-        @media (max-width: 768px) {
-            .menu-categories {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            .menu-content {
-                padding: 3rem 2rem;
-            }
-            .menu-content h2 {
-                font-size: 2.5rem;
-            }
-            .menu-content h2 {
-                font-size: 2.5rem;
-            }
-        }
-
-        /* Contact Section */
-        #contact {
-            background: var(--cream);
-        }
-
-        .contact-content {
-            max-width: 1200px;
-            margin: 2rem auto;
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 3rem;
-            align-items: start;
-        }
-
-        .contact-info {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-        }
-
-        .contact-info .full-width {
-            grid-column: 1 / -1;
-        }
-
-        .contact-item {
-            padding: 1.5rem;
-            background: var(--light-grey);
-            border-radius: 10px;
-            border-left: 4px solid #A0A0A0;
-            transition: transform 0.3s ease;
-        }
-
-        .contact-item:hover {
-            transform: translateX(10px);
-        }
-
-        .contact-item h3 {
-            font-size: 1.3rem;
-            color: var(--dark-grey);
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .contact-item p {
-            font-size: 1.1rem;
-            color: var(--grey);
-        }
-
-        .contact-item a {
-            color: #0066CC;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .contact-item a:hover {
-            color: #004499;
-        }
-
-        .contact-map {
-            background: var(--beige);
-            border-radius: 10px;
-            padding: 0;
-            height: 100%;
-            min-height: 500px;
-            width: 100%;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Contact Form */
-        .contact-form-container {
-            background: white;
-            padding: 3rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .contact-form-container h3 {
-            font-size: 2rem;
-            color: var(--dark-grey);
-            margin-bottom: 2rem;
-            text-align: center;
-            font-style: italic;
-        }
-
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .form-group label {
-            font-size: 1rem;
-            color: var(--dark-grey);
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            padding: 0.8rem;
-            border: 2px solid var(--light-grey);
-            border-radius: 8px;
-            font-size: 1rem;
-            font-family: inherit;
-            transition: border-color 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--orange);
-        }
-
-        .form-group textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-
-        .submit-btn {
-            background: var(--grey);
-            color: white;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 5px 20px rgba(107, 107, 107, 0.3);
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(107, 107, 107, 0.4);
-        }
-
-        .contact-info-text {
-            margin-top: 2rem;
-            padding: 2rem;
-            background: var(--cream);
-            border-radius: 10px;
-        }
-
-        .contact-info-text p {
-            margin-bottom: 1rem;
-            color: var(--grey);
-            line-height: 1.8;
-        }
-
-        .contact-info-text strong {
-            color: var(--dark-grey);
-        }
-
-        .contact-info-text a {
-            color: #0066CC;
-            text-decoration: none;
-        }
-
-        .contact-info-text a:hover {
-            text-decoration: underline;
-        }
-
-        .social-icons {
-            display: flex;
-            gap: 1rem;
-            align-items: center;
-            margin-top: 0.5rem;
-        }
-
-        .social-icons a {
-            display: inline-block;
-        }
-
-        .social-icons img {
-            width: 30px;
-            height: 30px;
-            border-radius: 5px;
-            transition: transform 0.3s ease;
-        }
-
-        .social-icons img:hover {
-            transform: scale(1.1);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--dark-grey);
-            color: var(--cream);
-            text-align: center;
-            padding: 2rem;
-        }
-
-        footer p {
-            font-size: 1rem;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-links {
-                gap: 1rem;
-            }
-
-            .hero-text h1 {
-                font-size: 2rem;
-            }
-
-            .hero-text p {
-                font-size: 1.2rem;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-content {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-info {
-                grid-template-columns: 1fr;
-            }
-
-            section {
-                padding: 3rem 5%;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            /* Mobile-specific improvements */
-            .team-grid {
-                grid-template-columns: 1fr !important;
-                gap: 1.5rem;
-            }
-
-            .team-member {
-                padding: 1rem;
-            }
-
-            .team-member h3 {
-                font-size: 1rem;
-            }
-
-            .team-member-photo {
-                width: 120px;
-                height: 120px;
-                margin: 0 auto 0.8rem;
-            }
-
-            .gallery-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .menu-categories {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .menu-content {
-                padding: 2rem 1.5rem;
-                margin: 1rem;
-            }
-
-            .menu-content h2,
-            .events-content h2 {
-                font-size: 2.5rem;
-            }
-
-            .events-content {
-                padding: 2rem 1.5rem;
-                margin: 1rem;
-            }
-
-            .contact-map {
-                min-height: 300px;
-            }
-
-            /* Adjust floating buttons for mobile */
-            .reservation-button {
-                bottom: 20px;
-                left: 20px;
-            }
-
-            .social-float {
-                bottom: 90px;
-                right: 20px;
-            }
-
-            .social-float a {
-                width: 45px;
-                height: 45px;
-            }
-
-            .music-toggle {
-                top: 80px;
-                right: 20px;
-                width: 45px;
-                height: 45px;
-            }
-        }
-
-        /* Smooth Scroll */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Visually hidden but accessible to screen readers */
-        .visually-hidden {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            margin: -1px;
-            padding: 0;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border: 0;
-        }
-
-        /* Loading state */
-        .loading {
-            opacity: 0.6;
-            pointer-events: none;
-        }
-
-        /* Improve focus visibility */
-        a:focus-visible,
-        button:focus-visible {
-            outline: 2px solid var(--orange);
-            outline-offset: 2px;
-        }
-
-        /* Visually hidden but accessible to screen readers */
-        .visually-hidden {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            margin: -1px;
-            padding: 0;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border: 0;
-        }
-
-        /* Loading state */
-        .loading {
-            opacity: 0.6;
-            pointer-events: none;
-        }
-
-        /* Improve focus visibility */
-        a:focus-visible,
-        button:focus-visible {
-            outline: 2px solid var(--orange);
-            outline-offset: 2px;
-        }
-
-        /* Mobile Menu Toggle */
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-            background: transparent;
-            border: none;
-            padding: 0.5rem;
-        }
-
-        .menu-toggle:focus {
-            outline: 2px solid var(--orange);
-            outline-offset: 2px;
-        }
-
-        .menu-toggle span {
-            width: 25px;
-            height: 3px;
-            background: var(--dark-grey);
-            transition: 0.3s;
-            display: block;
-        }
-
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: flex;
-            }
-
-            .nav-links {
-                position: fixed;
-                top: 70px;
-                right: -100%;
-                flex-direction: column;
-                background: white;
-                width: 70%;
-                height: calc(100vh - 70px);
-                padding: 2rem;
-                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-                transition: right 0.3s ease;
-            }
-
-            .nav-links.active {
-                right: 0;
-            }
-        }
-
-        .icon {
-            font-size: 1.2rem;
-        }
-
-        /* Social Media Button */
-        .social-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 999;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        /* Reservation Button */
-        .reservation-button {
-            position: fixed;
-            bottom: 30px;
-            left: 30px;
-            z-index: 999;
-        }
-
-        .reservation-button a {
-            display: inline-block;
-            padding: 0.7rem 1.3rem;
-            background: var(--grey);
-            color: var(--cream);
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            letter-spacing: 0.5px;
-        }
-
-        .reservation-button a:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
-        }
-
-        /* Music Toggle Button */
-        .music-toggle {
-            position: fixed;
-            top: 100px;
-            right: 30px;
-            z-index: 999;
-            width: 50px;
-            height: 50px;
-            background: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        .music-toggle:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-        }
-
-        .music-toggle.playing {
-            background: var(--orange);
-        }
-
-        .music-toggle svg {
-            width: 24px;
-            height: 24px;
-            fill: var(--dark-grey);
-        }
-
-        .music-toggle.playing svg {
-            fill: white;
-        }
-
-        .social-float a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 60px;
-            height: 60px;
-            background: white;
-            border-radius: 50%;
-            color: white;
-            font-size: 1.8rem;
-            text-decoration: none;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            overflow: hidden;
-        }
-
-        .social-float a img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .social-float a:hover {
-            transform: scale(1.1) rotate(5deg);
-            box-shadow: 0 8px 30px rgba(188, 24, 136, 0.5);
-        }
-
-        /* Team Section */
-        #team {
-            background: var(--cream);
-        }
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .team-member {
-            text-align: center;
-            padding: 1.5rem;
-            background: var(--light-grey);
-            border-radius: 10px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .team-member:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-        }
-
-        .team-member-photo {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            margin: 0 auto 1rem;
-            overflow: hidden;
-            background: var(--beige);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--grey);
-            font-style: italic;
-        }
-
-        .team-member-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .team-member h3 {
-            font-size: 1.4rem;
-            color: var(--dark-grey);
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-
-        /* Events Modal */
-        .events-modal {
-            display: none;
-            position: fixed;
-            z-index: 10000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            overflow-y: auto;
-            padding: 2rem;
-        }
-
-        .events-modal.active {
-            display: block;
-        }
-
-        .events-content {
-            background: var(--cream);
-            max-width: 900px;
-            margin: 2rem auto;
-            padding: 3rem;
-            border-radius: 15px;
-            position: relative;
-            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.3);
-        }
-
-        .events-close {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            font-size: 40px;
-            color: var(--dark-grey);
-            cursor: pointer;
-            transition: color 0.3s ease;
-            font-weight: 300;
-            line-height: 1;
-        }
-
-        .events-close:hover {
-            color: var(--orange);
-        }
-
-        .events-content h2 {
-            font-size: 3rem;
-            color: var(--dark-grey);
-            text-align: center;
-            margin-bottom: 2rem;
-            font-weight: 300;
-            letter-spacing: 2px;
-        }
-
-        .event-card {
-            background: var(--beige);
-            color: var(--dark-grey);
-            padding: 3rem;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            max-width: 800px;
-            margin: 2rem auto;
-            position: relative;
-            overflow: hidden;
-            border-left: 5px solid var(--orange);
-        }
-
-        .event-card h3 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            letter-spacing: 2px;
-            color: var(--dark-grey);
-        }
-
-        .event-card .event-details {
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-            font-weight: 500;
-            color: var(--grey);
-        }
-
-        .event-card .event-description {
-            font-size: 1rem;
-            font-style: italic;
-            line-height: 1.6;
-            color: var(--grey);
-        }
-
-        /* Reviews Section */
-        .reviews-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .review-card {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border-top: 3px solid var(--orange);
-        }
-
-        .review-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .review-rating {
-            color: var(--orange);
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-        }
-
-        .review-text {
-            color: var(--grey);
-            font-size: 1.05rem;
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-            font-style: italic;
-        }
-
-        .review-author {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .review-avatar {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--orange), var(--light-red));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-
-        .review-author-info h4 {
-            color: var(--dark-grey);
-            font-size: 1.1rem;
-            margin-bottom: 0.2rem;
-        }
-
-        .review-author-info p {
-            color: var(--grey);
-            font-size: 0.9rem;
-        }
-
-        /* Instagram Feed Section */
-        .instagram-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            margin-top: 2rem;
-            max-width: 1000px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        @media (max-width: 900px) {
-            .instagram-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 600px) {
-            .instagram-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .instagram-item {
-            position: relative;
-            height: 250px;
-            background: var(--light-grey);
-            border-radius: 10px;
-            overflow: hidden;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        .instagram-item:hover {
-            transform: scale(1.05);
-        }
-
-        .instagram-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .instagram-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
-            padding: 1rem;
-            color: white;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .instagram-item:hover .instagram-overlay {
-            opacity: 1;
-        }
-
-        /* Special Offers Section */
-        .offers-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .offer-card {
-            background: linear-gradient(135deg, var(--orange) 0%, var(--light-red) 100%);
-            color: white;
-            padding: 2.5rem 2rem;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(212, 135, 111, 0.3);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .offer-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            animation: shimmer 3s infinite;
-        }
-
-        @keyframes shimmer {
-            0%, 100% { transform: translate(0, 0); }
-            50% { transform: translate(-30%, -30%); }
-        }
-
-        .offer-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 15px 40px rgba(212, 135, 111, 0.4);
-        }
-
-        .offer-badge {
-            background: rgba(255, 255, 255, 0.9);
-            color: var(--orange);
-            padding: 0.5rem 1.5rem;
-            border-radius: 25px;
-            font-weight: bold;
-            display: inline-block;
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-        }
-
-        .offer-card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            font-weight: 500;
-        }
-
-        .offer-card p {
-            font-size: 1.05rem;
-            opacity: 0.95;
-            line-height: 1.6;
-        }
-
-        /* Newsletter & Careers Section */
-        .join-us-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 2rem auto;
-        }
-
-        .newsletter-container,
-        .careers-container {
-            background: var(--white);
-            padding: 3rem 2.5rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        .newsletter-container h3 {
-            font-size: 2rem;
-            color: var(--dark-grey);
-            margin-bottom: 1rem;
-        }
-
-        .newsletter-container p {
-            color: var(--grey);
-            margin-bottom: 2rem;
-            font-size: 1.1rem;
-        }
-
-        .newsletter-form {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .newsletter-form input {
-            flex: 1;
-            padding: 1rem 1.5rem;
-            border: 2px solid var(--light-grey);
-            border-radius: 50px;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-        }
-
-        .newsletter-form input:focus {
-            outline: none;
-            border-color: var(--orange);
-        }
-
-        .newsletter-form button {
-            padding: 1rem 2.5rem;
-            background: var(--orange);
-            color: white;
-            border: none;
-            border-radius: 50px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            white-space: nowrap;
-        }
-
-        .newsletter-form button:hover {
-            background: var(--light-red);
-            transform: scale(1.05);
-        }
-
-        /* Join Us Section - Newsletter & Careers side-by-side */
-        .join-us-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 2rem auto;
-        }
-
-        .careers-container {
-            background: var(--white);
-            padding: 3rem 2.5rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        .careers-container h3 {
-            font-size: 2rem;
-            color: var(--dark-grey);
-            margin-bottom: 1rem;
-        }
-
-        .careers-container p {
-            color: var(--grey);
-            margin-bottom: 2rem;
-            font-size: 1.1rem;
-        }
-
-        .job-positions {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .job-position {
-            background: var(--cream);
-            padding: 1.5rem;
-            border-radius: 10px;
-            text-align: left;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 3px solid transparent;
-        }
-
-        .job-position:hover {
-            background: var(--beige);
-            transform: translateX(5px);
-        }
-
-        .job-position.selected {
-            border-color: var(--orange);
-            background: var(--beige);
-        }
-
-        .job-position h4 {
-            color: var(--orange);
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .job-position p {
-            margin: 0;
-            font-size: 1rem;
-        }
-
-        .careers-container .apply-btn {
-            display: inline-block;
-            padding: 1rem 3rem;
-            background: var(--light-grey);
-            color: var(--grey);
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            cursor: not-allowed;
-            pointer-events: none;
-        }
-
-        .careers-container .apply-btn.active {
-            background: var(--grey);
-            color: white;
-            cursor: pointer;
-            pointer-events: all;
-        }
-
-        .careers-container .apply-btn.active:hover {
-            background: var(--dark-grey);
-            transform: translateY(-2px);
-        }
-
-        /* Opening Hours Section */
-        .hours-container {
-            max-width: 700px;
-            margin: 2rem auto;
-            background: var(--white);
-            padding: 2.5rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .hours-status {
-            text-align: center;
-            padding: 1.5rem;
-            background: linear-gradient(135deg, var(--orange), var(--light-red));
-            color: white;
-            border-radius: 10px;
-            margin-bottom: 2rem;
-            font-size: 1.3rem;
-            font-weight: 600;
-        }
-
-        .hours-list {
-            list-style: none;
-        }
-
-        .hours-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 1rem 0;
-            border-bottom: 1px solid var(--light-grey);
-        }
-
-        .hours-item:last-child {
-            border-bottom: none;
-        }
-
-        .hours-day {
-            color: var(--dark-grey);
-            font-weight: 500;
-            font-size: 1.1rem;
-        }
-
-        .hours-time {
-            color: var(--grey);
-            font-size: 1.1rem;
-        }
-
-        .hours-item.today {
-            background: var(--cream);
-            padding: 1rem;
-            margin: 0 -1rem;
-            border-radius: 8px;
-        }
-
-        .hours-item.today .hours-day {
-            color: var(--orange);
-            font-weight: 600;
-        }
-
-        /* FAQ Section */
-        .faq-container {
-            max-width: 800px;
-            margin: 2rem auto;
-        }
-
-        .faq-item {
-            background: var(--white);
-            margin-bottom: 1rem;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-            transition: box-shadow 0.3s ease;
-        }
-
-        .faq-item:hover {
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        .faq-question {
-            padding: 1.5rem;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: var(--white);
-            transition: background 0.3s ease;
-        }
-
-        .faq-question:hover {
-            background: var(--cream);
-        }
-
-        .faq-question h3 {
-            color: var(--dark-grey);
-            font-size: 1.1rem;
-            font-weight: 500;
-            margin: 0;
-        }
-
-        .faq-toggle {
-            color: var(--orange);
-            font-size: 1.5rem;
-            transition: transform 0.3s ease;
-            font-weight: 300;
-        }
-
-        .faq-item.active .faq-toggle {
-            transform: rotate(45deg);
-        }
-
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease, padding 0.3s ease;
-            background: var(--cream);
-        }
-
-        .faq-item.active .faq-answer {
-            max-height: 300px;
-            padding: 1.5rem;
-        }
-
-        .faq-answer p {
-            color: var(--grey);
-            line-height: 1.7;
-            margin: 0;
-        }
-
-        /* Philosophy Section */
-        .philosophy-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .philosophy-card {
-            text-align: center;
-            padding: 2rem;
-            background: var(--white);
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .philosophy-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .philosophy-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .philosophy-card h3 {
-            color: var(--dark-grey);
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-            font-weight: 500;
-        }
-
-        .philosophy-card p {
-            color: var(--grey);
-            line-height: 1.6;
-        }
-
-        /* Coffee Story Section */
-        .coffee-story-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            margin-top: 2rem;
-            align-items: center;
-        }
-
-        .coffee-story-text h3 {
-            color: var(--orange);
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-        }
-
-        .coffee-story-text p {
-            color: var(--grey);
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-            text-align: justify;
-        }
-
-        .coffee-story-image {
-            width: 100%;
-            height: 400px;
-            background: var(--beige);
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--grey);
-            font-style: italic;
-        }
-
-        .coffee-story-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* Private Events Section */
-        .events-info-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            margin-top: 2rem;
-        }
-
-        .events-details {
-            background: var(--white);
-            padding: 2.5rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .events-details h3 {
-            color: var(--orange);
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .events-features {
-            list-style: none;
-        }
-
-        .events-features li {
-            padding: 0.8rem 0;
-            color: var(--grey);
-            font-size: 1.05rem;
-            border-bottom: 1px solid var(--light-grey);
-            padding-left: 2rem;
-            position: relative;
-        }
-
-        .events-features li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--orange);
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-
-        .events-features li:last-child {
-            border-bottom: none;
-        }
-
-        .events-image {
-            width: 100%;
-            height: 100%;
-            background: var(--beige);
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--grey);
-            font-style: italic;
-        }
-
-        .events-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* Before/After Slider */
-        #transformation {
-            min-height: 600px !important;
-            padding: 5rem 10% !important;
-            background: var(--cream) !important;
-        }
-
-        .comparison-slider {
-            position: relative;
-            max-width: 800px;
-            width: 100%;
-            margin: 3rem auto;
-            height: 500px;
-            min-height: 500px;
-            overflow: hidden;
-            border-radius: 15px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-            background: #cccccc;
-        }
-
-        .comparison-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .comparison-before {
-            background: linear-gradient(135deg, #F5DEB3 0%, #D2B48C 50%, #8B6F47 100%);
-            background-image: url('trifatso_coffee_cup.jpg');
-            background-size: cover;
-            background-position: center;
-            z-index: 1;
-        }
-
-        .comparison-after {
-            clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
-            background: linear-gradient(135deg, #1a0a2e 0%, #16213e 40%, #533483 100%);
-            background-image: url('trifatso_wine_glass.jpg');
-            background-size: cover;
-            background-position: center;
-            z-index: 2;
-        }
-
-        .comparison-slider-handle {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            width: 4px;
-            height: 100%;
-            background: white;
-            cursor: ew-resize;
-            transform: translateX(-50%);
-            z-index: 10;
-        }
-
-        .comparison-slider-handle::before {
-            content: '⇄';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-            font-size: 1.5rem;
-            color: var(--dark-grey);
-        }
-
-        .comparison-labels {
-            position: absolute;
-            top: 20px;
-            left: 0;
-            right: 0;
-            display: flex;
-            justify-content: space-between;
-            padding: 0 2rem;
-            pointer-events: none;
-        }
-
-        .comparison-label {
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 0.5rem 1.5rem;
-            border-radius: 25px;
-            font-weight: 600;
-            font-size: 1rem;
-        }
-
-        @media (max-width: 768px) {
-            .join-us-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .newsletter-form {
-                flex-direction: column;
-            }
-
-            .coffee-story-content,
-            .events-info-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .comparison-slider {
-                height: 300px;
-            }
-
-            .philosophy-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .reviews-container {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav role="navigation" aria-label="Main navigation">
-        <div class="nav-logo">τρίϕατσο</div>
-        <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle mobile menu" aria-expanded="false">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-        <ul class="nav-links" id="navLinks">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#philosophy">Philosophy</a></li>
-            <li><a href="#reviews">Reviews</a></li>
-            <li><a href="#offers">Offers</a></li>
-            <li><a href="#team">Faces</a></li>
-            <li><a href="#gallery">Gallery</a></li>
-            <li><a href="#" onclick="openEvents(); return false;">Events</a></li>
-            <li><a href="#" onclick="openMenu(); return false;">Menu</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+
+    <!-- ============================================================
+         NAVIGATION
+    ============================================================ -->
+    <nav class="nav" id="nav">
+        <div class="nav__inner">
+            <button class="nav__toggle" id="navToggle" aria-label="Open navigation" aria-expanded="false">
+                <span></span>
+                <span></span>
+            </button>
+            <a href="#home" class="nav__logo">
+                <img src="logo_without_back.png" alt="Artermision" class="nav__logo-img">
+                <span class="nav__logo-text">
+                    <span class="nav__logo-hotel">Hotel</span>
+                    <span class="nav__logo-name">Artermision</span>
+                </span>
+            </a>
+            <ul class="nav__links">
+                <li><a href="#rooms" class="nav__link">Rooms &amp; Suites</a></li>
+                <li><a href="#spa" class="nav__link">Spa</a></li>
+                <li><a href="#pool" class="nav__link">Pool</a></li>
+                <li><a href="#wellness" class="nav__link">Wellness</a></li>
+                <li><a href="#experiences" class="nav__link">Retreat</a></li>
+                <li><a href="#contact" class="nav__link">Contact</a></li>
+            </ul>
+            <a href="#contact" class="nav__cta">Reserve</a>
+        </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero" aria-label="Hero section">
-        <div class="logo-container">
-            <img src="logo - Copy.jpg" alt="τριϕατσο Logo - Three faces representing quality coffee culture" loading="eager">
+    <!-- Mobile Navigation Overlay -->
+    <div class="nav-mobile" id="navMobile" aria-hidden="true">
+        <button class="nav-mobile__close" id="navClose" aria-label="Close navigation">&#10005;</button>
+        <ul>
+            <li><a href="#rooms">Rooms &amp; Suites</a></li>
+            <li><a href="#spa">Spa</a></li>
+            <li><a href="#pool">Pool</a></li>
+            <li><a href="#wellness">Wellness</a></li>
+            <li><a href="#experiences">Retreat</a></li>
+            <li><a href="#contact">Reserve</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="nav-mobile__footer">
+            <span>Evia, Greece</span>
+            <span>+30 2226 022251</span>
         </div>
-        <div class="hero-text">
-            <h1 class="visually-hidden">τριϕατσο Cafe Shop</h1>
-            <p>Three faces | One place | Pure taste</p>
+    </div>
+
+    <!-- ============================================================
+         HERO
+    ============================================================ -->
+    <section class="hero" id="home">
+        <div class="hero__media">
+            <div class="hero__photo-placeholder" aria-hidden="true"></div>
+        </div>
+        <div class="hero__overlay"></div>
+        <div class="hero__content">
+            <img src="logo_without_back.png" alt="" class="hero__hotel-logo" aria-hidden="true">
+            <span class="hero__hotel-name">Hotel Artemision</span>
+            <span class="hero__location">Aidipsos · Evia · Greece</span>
+            <h1 class="hero__title">Wellness in <em>Every Stay</em></h1>
+            <p class="hero__tagline">A premium retreat designed for rest,<br>renewal and elevated living.</p>
+        </div>
+        <div class="hero__scroll">
+            <div class="hero__scroll-line"></div>
+            <span class="hero__scroll-label">Scroll</span>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about">
-        <h2 class="section-title">About Us</h2>
-        <p class="section-subtitle">Discover our story and passion</p>
-        
-        <div class="about-content">
-            <div class="about-text">
-                <h3>Our Story</h3>
-                <p>
-                    <span style="font-family: 'Georgia', 'Times New Roman', serif; font-style: italic;">τρίϕατσο</span> is more than just a cafe - it's a celebration of coffee culture blended with 
-                    contemporary flair. Our name, symbolizing three faces, represents the unity of past, present, 
-                    and future in every cup we serve.
-                </p>
-                <p>
-                    We carefully select our beans, prepare each drink with precision, and create an atmosphere 
-                    where friends become family. From your morning espresso to afterwork drinks, we're here for 
-                    every moment of your day. Whether you're stopping by for a quick coffee or settling in for 
-                    a leisurely afternoon, <span style="font-family: 'Georgia', 'Times New Roman', serif; font-style: italic;">τρίϕατσο</span> is your home away from home.
-                </p>
-                <p>
-                    Our minimalist approach to design mirrors our philosophy: quality over quantity, 
-                    authenticity over trends, and warmth over formality.
-                </p>
-            </div>
-            <div class="about-image">
-                <!-- Add your cafe photo here -->
-                <img src="trifatso_three_guys.jpg" alt="The three founders of τριϕατσο cafe in Athens" loading="lazy">
-            </div>
-        </div>
-    </section>
-
-    <!-- Philosophy Section -->
-    <section id="philosophy" style="background: var(--cream);">
-        <h2 class="section-title">Our Philosophy</h2>
-        <p class="section-subtitle">What we believe in</p>
-        
-        <div class="philosophy-grid">
-            <div class="philosophy-card">
-                <div class="philosophy-icon">☕</div>
-                <h3>Quality First</h3>
-                <p>Every cup is crafted with precision and passion. We never compromise on quality, from bean selection to the final pour.</p>
-            </div>
-            
-            <div class="philosophy-card">
-                <div class="philosophy-icon">🤝</div>
-                <h3>Community</h3>
-                <p>τρίϕατσο is more than a cafe - it's a gathering place where strangers become friends and friends become family.</p>
-            </div>
-            
-            <div class="philosophy-card">
-                <div class="philosophy-icon">🌱</div>
-                <h3>Sustainability</h3>
-                <p>We're committed to ethical sourcing, minimal waste, and supporting local suppliers who share our values.</p>
-            </div>
-            
-            <div class="philosophy-card">
-                <div class="philosophy-icon">✨</div>
-                <h3>Authenticity</h3>
-                <p>No pretense, no gimmicks - just genuine hospitality, honest ingredients, and real connections.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Coffee Story Section -->
-    <section id="coffee-story" style="background: var(--white);">
-        <h2 class="section-title">Our Coffee Story</h2>
-        <p class="section-subtitle">From bean to cup - a journey of quality</p>
-        
-        <div class="coffee-story-content">
-            <div class="coffee-story-text">
-                <h3>Carefully Sourced, Expertly Crafted</h3>
-                <p>
-                    At τρίϕατσο, coffee is an art form. We partner with select roasters who share our commitment 
-                    to excellence, sourcing single-origin beans from ethical farms around the world.
-                </p>
-                <p>
-                    Our baristas are trained artisans, masters of extraction and temperature, who understand that 
-                    every bean has a story to tell. From the highlands of Ethiopia to the mountains of Colombia, 
-                    we bring you flavors that celebrate their origin.
-                </p>
-                <p>
-                    We roast in small batches to ensure maximum freshness, and every espresso shot is pulled with 
-                    precision timing. The result? A cup that honors the farmer, the roaster, and most importantly - you.
-                </p>
-            </div>
-            <div class="coffee-story-image">
-                <span>Coffee beans & brewing process photo</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Before/After Transformation Slider -->
-    <section id="transformation" style="background: var(--cream);">
-        <h2 class="section-title">Day to Night Transformation</h2>
-        <p class="section-subtitle">Drag the slider to see our space transform</p>
-        
-        <div class="comparison-slider" id="comparisonSlider">
-            <div class="comparison-labels">
-                <span class="comparison-label">☀️ Morning Coffee</span>
-                <span class="comparison-label">🌙 Night Cocktails</span>
-            </div>
-            <div class="comparison-image comparison-before"></div>
-            <div class="comparison-image comparison-after" id="afterImage"></div>
-            <div class="comparison-slider-handle" id="sliderHandle"></div>
-        </div>
-    </section>
-
-    <!-- Reviews Section -->
-    <section id="reviews" style="background: var(--white);">
-        <h2 class="section-title">What Our Guests Say</h2>
-        <p class="section-subtitle">Real reviews from real people</p>
-        
-        <div class="reviews-container">
-            <div class="review-card">
-                <div class="review-rating">★★★★★</div>
-                <p class="review-text">
-                    "Great new hangout in Pagrati! The coffee is excellent, the spritzes are cool and creative, and the atmosphere is incredibly friendly. The staff is smiling and polite — I will definitely go back! 😎"
-                </p>
-                <div class="review-author">
-                    <div class="review-avatar">PP</div>
-                    <div class="review-author-info">
-                        <h4>Panos Pap.</h4>
-                        <p>Google Reviewer</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="review-card">
-                <div class="review-rating">★★★★★</div>
-                <p class="review-text">
-                    "Very nice shop in Pagrati! Nice atmosphere, neat cocktails, impeccable coffee and generally nice energy. The staff is polite and friendly, always smiling. Ideal for a relaxed drink after work or for coffee with friends. I will definitely go back!"
-                </p>
-                <div class="review-author">
-                    <div class="review-avatar">ΒΤ</div>
-                    <div class="review-author-info">
-                        <h4>Βίκυ Τσουκαλά</h4>
-                        <p>Google Reviewer</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="review-card">
-                <div class="review-rating">★★★★★</div>
-                <p class="review-text">
-                    "Very nice shop! Excellent coffee, clean space and fast, polite service. The food is great — I definitely recommend it!"
-                </p>
-                <div class="review-author">
-                    <div class="review-avatar">AA</div>
-                    <div class="review-author-info">
-                        <h4>Afr Afr</h4>
-                        <p>Google Reviewer</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="review-card">
-                <div class="review-rating">★★★★★</div>
-                <p class="review-text">
-                    "I loved the little Trifatso not only for its catchy logo and the fact that it becomes a bar at night...but because it makes the most fragrant and strong Greek coffee I've ever had!!"
-                </p>
-                <div class="review-author">
-                    <div class="review-avatar">ZV</div>
-                    <div class="review-author-info">
-                        <h4>Zenia's Vegan Life</h4>
-                        <p>Google Local Guide</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="review-card">
-                <div class="review-rating">★★★★★</div>
-                <p class="review-text">
-                    "The new hangout in Pagrati. Neat space, nice cocktails, very friendly staff!!"
-                </p>
-                <div class="review-author">
-                    <div class="review-avatar">DK</div>
-                    <div class="review-author-info">
-                        <h4>Dionisis Kladis</h4>
-                        <p>Google Reviewer</p>
-                    </div>
+    <!-- ============================================================
+         BRAND STATEMENT
+    ============================================================ -->
+    <section class="statement">
+        <div class="container">
+            <div class="statement__inner reveal">
+                <div class="statement__label">Our Philosophy</div>
+                <h2 class="statement__title">
+                    Restoration is not a luxury.<br>
+                    <em>It is the destination.</em>
+                </h2>
+                <div class="statement__philosophy">
+                    <p>At the heart of our philosophy lies a simple belief: true hospitality is not only about where you stay, but how you feel while you are there. We believe in creating a place where comfort, wellbeing, and meaningful experiences come together in perfect balance.</p>
+                    <p>Rooted in the natural beauty and restorative spirit of our surroundings, our hotel is designed as a sanctuary of calm — a place where guests are invited to slow down, reconnect, and experience a more conscious way of living. From the soothing presence of thermal water to the quiet elegance of our spaces, every detail is thoughtfully curated to inspire rest, renewal, and a sense of effortless wellbeing.</p>
+                    <p>More than a destination, we offer an experience shaped by warmth, authenticity, and refined simplicity — where every stay becomes an invitation to restore, rebalance, and truly unwind.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Special Offers Section -->
-    <section id="offers" style="background: var(--cream);">
-        <h2 class="section-title">Special Offers</h2>
-        <p class="section-subtitle">Don't miss out on these amazing deals</p>
-        
-        <div class="offers-container">
-            <div class="offer-card">
-                <span class="offer-badge">HAPPY HOUR</span>
-                <h3>3-for-2 Cocktails</h3>
-                <p>Every weekday from 17:00-19:00<br>Buy 2 cocktails, get the 3rd FREE! 🍹</p>
+    <!-- ============================================================
+         SUITES & RESIDENCES
+    ============================================================ -->
+    <section class="suites" id="rooms">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">Accommodation</span>
+                <h2 class="section-title">Rooms &amp; Suites</h2>
+                <p class="section-desc">Every room at Artermision is a sanctuary — designed around comfort,
+                natural light and the quiet luxury of genuine rest.</p>
             </div>
-            
-            <div class="offer-card">
-                <span class="offer-badge">WEEKEND BRUNCH</span>
-                <h3>Free Coffee Upgrade</h3>
-                <p>Saturday & Sunday 10:00-14:00<br>Order any breakfast, get a FREE specialty coffee upgrade!</p>
-            </div>
-            
-            <div class="offer-card">
-                <span class="offer-badge">LATE NIGHT</span>
-                <h3>Buy 3, Get 1 Free</h3>
-                <p>After 22:00 on Fridays & Saturdays<br>Any drinks - shots, cocktails, or beers! 🎉</p>
+            <div class="suites__grid">
+
+                <!-- ROW 1 -->
+
+                <!-- SUITES -->
+                <article class="suite-card reveal" data-modal="suites" role="button" tabindex="0" aria-label="View Suites details">
+                    <div class="suite-card__image">
+                        <img src="Suite_Bed.jpeg" alt="Artermision Suite" loading="lazy">
+                        <div class="suite-card__overlay">
+                            <span class="btn btn--light-sm">View Suite</span>
+                        </div>
+                    </div>
+                    <div class="suite-card__body">
+                        <span class="suite-card__type">Premium Accommodation</span>
+                        <h3 class="suite-card__name">Suites</h3>
+                        <p class="suite-card__desc">Spacious, elegantly appointed suites with premium bedding, private balconies and curated wellness amenities. Designed for a complete experience of elevated living.</p>
+                        <div class="suite-card__features">
+                            <span>King Bed</span>
+                            <span>40 sq.m.</span>
+                            <span>Private Balcony</span>
+                            <span>Spa Amenities</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- DOUBLE ROOMS -->
+                <article class="suite-card reveal" data-modal="double" role="button" tabindex="0" aria-label="View Double Rooms details">
+                    <div class="suite-card__image suite-card__image--placeholder">
+                        <div class="suite-card__placeholder-label">Photo coming soon</div>
+                        <div class="suite-card__overlay">
+                            <span class="btn btn--light-sm">View Room</span>
+                        </div>
+                    </div>
+                    <div class="suite-card__body">
+                        <span class="suite-card__type">Classic Accommodation</span>
+                        <h3 class="suite-card__name">Double Rooms</h3>
+                        <p class="suite-card__desc">Refined double rooms with a calm, considered aesthetic. Soft natural light, premium bedding and elegant finishes make every stay a quiet retreat.</p>
+                        <div class="suite-card__features">
+                            <span>Double Bed</span>
+                            <span>18 sq.m.</span>
+                            <span>City or Sea View</span>
+                            <span>En-suite Bath</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- SINGLE ROOMS -->
+                <article class="suite-card reveal" data-modal="single" role="button" tabindex="0" aria-label="View Single Rooms details">
+                    <div class="suite-card__image suite-card__image--placeholder">
+                        <div class="suite-card__placeholder-label">Photo coming soon</div>
+                        <div class="suite-card__overlay">
+                            <span class="btn btn--light-sm">View Room</span>
+                        </div>
+                    </div>
+                    <div class="suite-card__body">
+                        <span class="suite-card__type">Solo Retreat</span>
+                        <h3 class="suite-card__name">Single Rooms</h3>
+                        <p class="suite-card__desc">Intimate, beautifully designed single rooms for the solo traveller seeking quality rest. Every detail considered, every comfort provided.</p>
+                        <div class="suite-card__features">
+                            <span>Single Bed</span>
+                            <span>18 sq.m.</span>
+                            <span>En-suite Bath</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ROW 2 -->
+
+                <!-- TRIPLE ROOMS -->
+                <article class="suite-card reveal" data-modal="triple" role="button" tabindex="0" aria-label="View Triple Rooms details">
+                    <div class="suite-card__image suite-card__image--placeholder">
+                        <div class="suite-card__placeholder-label">Photo coming soon</div>
+                        <div class="suite-card__overlay">
+                            <span class="btn btn--light-sm">View Room</span>
+                        </div>
+                    </div>
+                    <div class="suite-card__body">
+                        <span class="suite-card__type">Shared Accommodation</span>
+                        <h3 class="suite-card__name">Triple Rooms</h3>
+                        <p class="suite-card__desc">Generously sized triple rooms designed for small groups or families. Three beds, considered layout and the same refined comfort throughout.</p>
+                        <div class="suite-card__features">
+                            <span>1 Double Bed + 2 Convertible Armchairs</span>
+                            <span>40 sq.m.</span>
+                            <span>En-suite Bath</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- FAMILY ROOMS -->
+                <article class="suite-card reveal" data-modal="family" role="button" tabindex="0" aria-label="View Family Rooms details">
+                    <div class="suite-card__image suite-card__image--placeholder">
+                        <div class="suite-card__placeholder-label">Photo coming soon</div>
+                        <div class="suite-card__overlay">
+                            <span class="btn btn--light-sm">View Room</span>
+                        </div>
+                    </div>
+                    <div class="suite-card__body">
+                        <span class="suite-card__type">Family Accommodation</span>
+                        <h3 class="suite-card__name">Family Rooms</h3>
+                        <p class="suite-card__desc">Generous, warmly designed rooms that accommodate the whole family in comfort. Thoughtful layout, natural materials and everything needed for a restorative family stay.</p>
+                        <div class="suite-card__features">
+                            <span>Multiple Beds</span>
+                            <span>40 sq.m.</span>
+                            <span>2 Rooms &amp; 2 Bathrooms</span>
+                            <span>Garden View</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ACCESSIBLE ROOMS -->
+                <article class="suite-card reveal" data-modal="accessible" role="button" tabindex="0" aria-label="View Accessible Rooms details">
+                    <div class="suite-card__image">
+                        <img src="Accessible.jpeg" alt="Accessible Room" loading="lazy">
+                        <div class="suite-card__overlay">
+                            <span class="btn btn--light-sm">View Room</span>
+                        </div>
+                    </div>
+                    <div class="suite-card__body">
+                        <span class="suite-card__type">Accessible Accommodation</span>
+                        <h3 class="suite-card__name">Accessible Rooms</h3>
+                        <p class="suite-card__desc">Fully accessible rooms designed with care, dignity and comfort. Every element is thoughtfully adapted to ensure an equally elevated stay for all guests.</p>
+                        <div class="suite-card__features">
+                            <span>Accessible Design</span>
+                            <span>20 sq.m.</span>
+                            <span>Roll-in Shower</span>
+                            <span>2nd Floor — Lift Access</span>
+                        </div>
+                    </div>
+                </article>
+
             </div>
         </div>
     </section>
 
-    <!-- Opening Hours Section -->
-    <section id="hours" style="background: var(--white);">
-        <h2 class="section-title">Opening Hours</h2>
-        <p class="section-subtitle">Come visit us</p>
-        
-        <div class="hours-container">
-            <div class="hours-status">
-                🟢 OPEN NOW - Closes at 12:00 AM
-            </div>
-            <ul class="hours-list">
-                <li class="hours-item">
-                    <span class="hours-day">Monday</span>
-                    <span class="hours-time">06:00 - 00:00</span>
-                </li>
-                <li class="hours-item">
-                    <span class="hours-day">Tuesday</span>
-                    <span class="hours-time">06:00 - 00:00</span>
-                </li>
-                <li class="hours-item today">
-                    <span class="hours-day">Wednesday (Today)</span>
-                    <span class="hours-time">06:00 - 00:00</span>
-                </li>
-                <li class="hours-item">
-                    <span class="hours-day">Thursday</span>
-                    <span class="hours-time">06:00 - 00:00</span>
-                </li>
-                <li class="hours-item">
-                    <span class="hours-day">Friday</span>
-                    <span class="hours-time">06:00 - 00:00</span>
-                </li>
-                <li class="hours-item">
-                    <span class="hours-day">Saturday</span>
-                    <span class="hours-time">06:00 - 00:00</span>
-                </li>
-                <li class="hours-item">
-                    <span class="hours-day">Sunday</span>
-                    <span class="hours-time">06:00 - 00:00</span>
-                </li>
+    <!-- ============================================================
+         SPA & WELLNESS
+    ============================================================ -->
+    <section class="spa-section" id="spa">
+        <div class="spa-section__media">
+            <img src="Spa page photo.jpg" alt="Artermision Spa — deep relaxation and restoration" loading="lazy">
+        </div>
+        <div class="spa-section__overlay"></div>
+        <div class="spa-section__content reveal">
+            <span class="section-label section-label--light">Artermision Spa</span>
+            <h2 class="section-title section-title--light">Thermal Spa<br><em>Treatments</em></h2>
+            <p class="spa-section__text">
+                Discover a restorative wellness experience designed to support recovery, rejuvenation, and long-term wellbeing. Our carefully curated thermal spa treatments combine the healing benefits of natural thermal water with personalised wellness guidance to help restore balance, vitality, and inner harmony.
+            </p>
+            <p class="spa-section__text">
+                From rejuvenating anti-ageing therapies and aesthetic treatments to tailored nutrition guidance, pool therapy, and specialised treatments for the body and face, each experience is thoughtfully designed to meet your individual needs and support a more holistic approach to health.
+            </p>
+            <p class="spa-section__text">
+                Reconnect with your body, restore from within, and experience the therapeutic benefits of treatments designed to promote relaxation, recovery, and overall wellbeing.
+            </p>
+            <ul class="spa-section__list">
+                <li><button class="spa-list__btn" data-spa-modal="massage">Therapeutic Massage</button></li>
+                <li><button class="spa-list__btn" data-spa-modal="hydro">Hydrotherapy</button></li>
+                <li><button class="spa-list__btn" data-spa-modal="rasul">Rasul</button></li>
+                <li><button class="spa-list__btn" data-spa-modal="salt">Salt Therapy</button></li>
+                <li><button class="spa-list__btn" data-spa-modal="headspa">Head Spa</button></li>
+                <li><button class="spa-list__btn" data-spa-modal="presotherapy">Presotherapy</button></li>
+                <li><button class="spa-list__btn" data-spa-modal="facial">Holistic Facial Treatment</button></li>
             </ul>
         </div>
     </section>
 
-    <!-- Instagram Feed Section -->
-    <section id="instagram" style="background: var(--cream);">
-        <h2 class="section-title">Follow Our Journey</h2>
-        <p class="section-subtitle">@trifatso on Instagram</p>
-        
-        <div class="instagram-grid">
-            <div class="instagram-item">
-                <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=400&h=400&fit=crop" alt="τριϕατσο Instagram post" loading="lazy">
-                <div class="instagram-overlay">
-                    <p>Morning vibes ☕</p>
-                </div>
-            </div>
-            <div class="instagram-item">
-                <img src="https://images.unsplash.com/photo-1545665225-b23b99e4d45e?w=400&h=400&fit=crop" alt="τριϕατσο Instagram post" loading="lazy">
-                <div class="instagram-overlay">
-                    <p>Fresh brews daily 🌟</p>
-                </div>
-            </div>
-            <div class="instagram-item">
-                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&h=400&fit=crop" alt="τριϕατσο Instagram post" loading="lazy">
-                <div class="instagram-overlay">
-                    <p>Cozy corner 📚</p>
-                </div>
-            </div>
-            <div class="instagram-item">
-                <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=400&h=400&fit=crop" alt="τριϕατσο Instagram post" loading="lazy">
-                <div class="instagram-overlay">
-                    <p>Espresso perfection ☕</p>
-                </div>
-            </div>
-            <div class="instagram-item">
-                <img src="https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?w=400&h=400&fit=crop" alt="τριϕατσο Instagram post" loading="lazy">
-                <div class="instagram-overlay">
-                    <p>Cocktail hour 🍸</p>
-                </div>
-            </div>
-            <div class="instagram-item">
-                <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=400&h=400&fit=crop" alt="τριϕατσο Instagram post" loading="lazy">
-                <div class="instagram-overlay">
-                    <p>Coffee art 🎨</p>
-                </div>
-            </div>
-        </div>
-        <div style="text-align: center; margin-top: 2rem;">
-            <a href="https://www.instagram.com/trifatso/" target="_blank" style="display: inline-block; padding: 1rem 3rem; background: var(--orange); color: white; text-decoration: none; border-radius: 50px; font-weight: 600; transition: transform 0.3s ease;">
-                Follow Us on Instagram
-            </a>
-        </div>
-    </section>
+    <!-- ============================================================
+         SPA TREATMENT MODALS
+    ============================================================ -->
 
-    <!-- Private Events Section -->
-    <section id="private-events" style="background: var(--white);">
-        <h2 class="section-title">Private Events</h2>
-        <p class="section-subtitle">Host your special occasion with us</p>
-        
-        <div class="events-info-grid">
-            <div class="events-details">
-                <h3>Perfect for Your Celebration</h3>
-                <p style="color: var(--grey); margin-bottom: 2rem; line-height: 1.7;">
-                    Whether it's a birthday, corporate gathering, or intimate celebration, τρίϕατσο provides 
-                    the perfect backdrop. We'll work with you to create a memorable experience.
-                </p>
-                <ul class="events-features">
-                    <li>Capacity up to 50 guests</li>
-                    <li>Custom menu options available</li>
-                    <li>Full bar service with signature cocktails</li>
-                    <li>DJ setup & sound system</li>
-                    <li>Flexible timing & decorations</li>
-                </ul>
-                <div style="margin-top: 2rem;">
-                    <a href="mailto:trifatsoathens@gmail.com?subject=Private Event Inquiry" style="display: inline-block; padding: 1rem 2rem; background: var(--grey); color: white; text-decoration: none; border-radius: 50px; font-weight: 600;">
-                        Request Event Info
-                    </a>
-                </div>
-            </div>
-            <div class="events-image">
-                <span>Private event photo</span>
+    <div class="spa-modal" id="spa-modal-massage" role="dialog" aria-modal="true" aria-labelledby="spa-modal-massage-title" aria-hidden="true">
+        <div class="spa-modal__backdrop"></div>
+        <div class="spa-modal__panel">
+            <button class="spa-modal__close" aria-label="Close">&times;</button>
+            <img class="spa-modal__image" src="massage.jpeg" alt="Therapeutic Massage" loading="lazy">
+            <div class="spa-modal__body">
+                <span class="spa-modal__label">Artermision Spa</span>
+                <h2 class="spa-modal__title" id="spa-modal-massage-title">Therapeutic Massage</h2>
+                <p class="spa-modal__desc">A deeply restorative treatment combining skilled therapeutic pressure, relaxation techniques and rhythmic movement. Tailored to each guest's individual needs — whether you seek relief from muscle tension, improved circulation or simply a profound state of calm. Available as a full-body or targeted session.</p>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- FAQ Section -->
-    <section id="faq" style="background: var(--cream);">
-        <h2 class="section-title">Frequently Asked Questions</h2>
-        <p class="section-subtitle">Everything you need to know</p>
-        
-        <div class="faq-container">
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFAQ(this)">
-                    <h3>Do you have WiFi?</h3>
-                    <span class="faq-toggle">+</span>
-                </div>
-                <div class="faq-answer">
-                    <p>Yes! We offer free high-speed WiFi to all our guests. Perfect for remote work or catching up on emails.</p>
-                </div>
+    <div class="spa-modal" id="spa-modal-hydro" role="dialog" aria-modal="true" aria-labelledby="spa-modal-hydro-title" aria-hidden="true">
+        <div class="spa-modal__backdrop"></div>
+        <div class="spa-modal__panel">
+            <button class="spa-modal__close" aria-label="Close">&times;</button>
+            <img class="spa-modal__image" src="hydrotherapy.jpeg" alt="Hydrotherapy" loading="lazy">
+            <div class="spa-modal__body">
+                <span class="spa-modal__label">Artermision Spa</span>
+                <h2 class="spa-modal__title" id="spa-modal-hydro-title">Hydrotherapy</h2>
+                <p class="spa-modal__desc">The therapeutic use of water in varied temperatures and pressures to stimulate circulation, ease joint and muscle discomfort and support the body's natural healing response. Our hydrotherapy treatments draw on the unique mineral richness of Edipsos' thermal waters for amplified restorative benefit.</p>
             </div>
-            
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFAQ(this)">
-                    <h3>Can I work from here with my laptop?</h3>
-                    <span class="faq-toggle">+</span>
-                </div>
-                <div class="faq-answer">
-                    <p>Absolutely! We love our laptop warriors. Comfortable seating, power outlets, and great coffee make τρίϕατσο ideal for remote work.</p>
-                </div>
+        </div>
+    </div>
+
+    <div class="spa-modal" id="spa-modal-rasul" role="dialog" aria-modal="true" aria-labelledby="spa-modal-rasul-title" aria-hidden="true">
+        <div class="spa-modal__backdrop"></div>
+        <div class="spa-modal__panel">
+            <button class="spa-modal__close" aria-label="Close">&times;</button>
+            <img class="spa-modal__image" src="rasul_1.jpeg" alt="Rasul" loading="lazy">
+            <div class="spa-modal__body">
+                <span class="spa-modal__label">Artermision Spa</span>
+                <h2 class="spa-modal__title" id="spa-modal-rasul-title">Rasul</h2>
+                <p class="spa-modal__desc">A traditional Middle Eastern ritual cleansing ceremony. Aromatic mineral muds are applied to the body, followed by a gentle steam session and a refreshing shower. Deeply purifying, intensely relaxing and profoundly restorative for the skin. An experience that cleanses, renews and stills the mind.</p>
             </div>
-            
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFAQ(this)">
-                    <h3>Do you take reservations?</h3>
-                    <span class="faq-toggle">+</span>
-                </div>
-                <div class="faq-answer">
-                    <p>We accept reservations for groups of 6 or more, and for all private events. Email us at trifatsoathens@gmail.com or click the "Book a Table" button.</p>
-                </div>
+        </div>
+    </div>
+
+    <div class="spa-modal" id="spa-modal-salt" role="dialog" aria-modal="true" aria-labelledby="spa-modal-salt-title" aria-hidden="true">
+        <div class="spa-modal__backdrop"></div>
+        <div class="spa-modal__panel">
+            <button class="spa-modal__close" aria-label="Close">&times;</button>
+            <img class="spa-modal__image" src="salt therapy.jpeg" alt="Salt Therapy" loading="lazy">
+            <div class="spa-modal__body">
+                <span class="spa-modal__label">Artermision Spa</span>
+                <h2 class="spa-modal__title" id="spa-modal-salt-title">Salt Therapy</h2>
+                <p class="spa-modal__desc">Inspired by the natural salt caves of Eastern Europe, our salt therapy room uses micro-particles of pharmaceutical-grade salt to support respiratory wellness, skin clarity and deep relaxation. A peaceful, breath-focused experience that cleanses the airways and calms the nervous system from within.</p>
             </div>
-            
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFAQ(this)">
-                    <h3>Do you have vegan/vegetarian options?</h3>
-                    <span class="faq-toggle">+</span>
-                </div>
-                <div class="faq-answer">
-                    <p>Yes! We offer plant-based milk alternatives (oat, almond, soy) and have vegan snack options. Just ask our staff!</p>
-                </div>
+        </div>
+    </div>
+
+    <div class="spa-modal" id="spa-modal-headspa" role="dialog" aria-modal="true" aria-labelledby="spa-modal-headspa-title" aria-hidden="true">
+        <div class="spa-modal__backdrop"></div>
+        <div class="spa-modal__panel">
+            <button class="spa-modal__close" aria-label="Close">&times;</button>
+            <img class="spa-modal__image" src="head spa.jpeg" alt="Head Spa" loading="lazy">
+            <div class="spa-modal__body">
+                <span class="spa-modal__label">Artermision Spa</span>
+                <h2 class="spa-modal__title" id="spa-modal-headspa-title">Head Spa</h2>
+                <p class="spa-modal__desc">A deeply restorative scalp and head ritual combining warm oil application, targeted acupressure and gentle massage techniques. Designed to release the tension held in the scalp, neck and shoulders, restore mental clarity and guide you into a state of profound, unhurried calm.</p>
             </div>
-            
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFAQ(this)">
-                    <h3>What's the Sunday DJ event?</h3>
-                    <span class="faq-toggle">+</span>
-                </div>
-                <div class="faq-answer">
-                    <p>Every Sunday we host live DJ sets starting at 8pm. Great music, amazing atmosphere, and special drink offers. Come experience τρίϕατσο's night vibe!</p>
-                </div>
+        </div>
+    </div>
+
+    <div class="spa-modal" id="spa-modal-presotherapy" role="dialog" aria-modal="true" aria-labelledby="spa-modal-presotherapy-title" aria-hidden="true">
+        <div class="spa-modal__backdrop"></div>
+        <div class="spa-modal__panel">
+            <button class="spa-modal__close" aria-label="Close">&times;</button>
+            <img class="spa-modal__image" src="presotherapy.jpeg" alt="Presotherapy" loading="lazy">
+            <div class="spa-modal__body">
+                <span class="spa-modal__label">Artermision Spa</span>
+                <h2 class="spa-modal__title" id="spa-modal-presotherapy-title">Presotherapy</h2>
+                <p class="spa-modal__desc">A specialised compression therapy that uses controlled air pressure to stimulate lymphatic drainage, improve circulation and reduce fluid retention. Delivered through a comfortable, full-length garment that gently massages the body in rhythmic waves — leaving you feeling lighter, refreshed and deeply restored.</p>
             </div>
-            
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFAQ(this)">
-                    <h3>Is there parking nearby?</h3>
-                    <span class="faq-toggle">+</span>
+        </div>
+    </div>
+
+    <div class="spa-modal" id="spa-modal-facial" role="dialog" aria-modal="true" aria-labelledby="spa-modal-facial-title" aria-hidden="true">
+        <div class="spa-modal__backdrop"></div>
+        <div class="spa-modal__panel">
+            <button class="spa-modal__close" aria-label="Close">&times;</button>
+            <img class="spa-modal__image" src="face therapy_1.jpeg" alt="Holistic Facial Treatment" loading="lazy">
+            <div class="spa-modal__body">
+                <span class="spa-modal__label">Artermision Spa</span>
+                <h2 class="spa-modal__title" id="spa-modal-facial-title">Holistic Facial Treatment</h2>
+                <p class="spa-modal__desc">A luxurious facial ritual that treats the skin and the senses in equal measure. Using premium botanical formulations, gentle massage and targeted techniques, this treatment deeply cleanses, hydrates and revitalises the complexion — leaving the skin luminous, balanced and profoundly refreshed. Tailored to your skin type and condition.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================
+         POOL
+    ============================================================ -->
+    <section class="split-section" id="pool">
+        <div class="split-section__media reveal-left">
+            <img src="pool5.jpeg" alt="Artermision pool — resort calm and premium leisure" loading="lazy" style="filter: brightness(0.78);">
+        </div>
+        <div class="split-section__content reveal-right">
+            <span class="section-label">The Pool</span>
+            <h2 class="section-title">Thermal Spa Pool</h2>
+            <p class="split-section__text">
+                Immerse yourself in the healing waters of Edipsos, naturally enriched with renowned thermal properties and maintained at a soothing temperature of 32–33°C. Designed for deep relaxation and wellbeing, our thermal spa pool offers a restorative experience that combines comfort, serenity and the timeless therapeutic benefits of Edipsos' natural springs.
+            </p>
+            <p class="split-section__text">
+                <strong>Benefits:</strong> Promotes deep relaxation, supports circulation, relieves muscle tension, eases joint discomfort, reduces stress and enhances overall wellbeing through the natural therapeutic properties of Edipsos thermal water.
+            </p>
+            <div class="split-section__stats">
+                <div class="stat">
+                    <span class="stat__value">150m</span>
+                    <span class="stat__label">Lap Pool</span>
                 </div>
-                <div class="faq-answer">
-                    <p>Yes, there's street parking on Ευτυχίδου and surrounding streets. The area is also well-connected by public transport.</p>
+                <div class="stat">
+                    <span class="stat__value">32–33°</span>
+                    <span class="stat__label">Heated Year-Round</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Newsletter & Careers Section -->
-    <section id="newsletter" style="background: var(--white);">
-        <h2 class="section-title">Join the τρίϕατσο Family</h2>
-        <p class="section-subtitle">Get exclusive updates or become part of our team</p>
-        
-        <div class="join-us-grid">
-            <!-- Newsletter Box -->
-            <div class="newsletter-container">
-                <h3>Stay Connected</h3>
-                <p>Be the first to know about new menu items, special events, and exclusive offers delivered straight to your inbox.</p>
-                <form class="newsletter-form" action="https://formsubmit.co/trifatsoathens@gmail.com" method="POST">
-                    <input type="hidden" name="_subject" value="Newsletter Subscription - τρίϕατσο">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="email" name="email" placeholder="Enter your email" required>
-                    <button type="submit">Subscribe</button>
+    <!-- ============================================================
+         FITNESS & WELLNESS
+    ============================================================ -->
+    <section class="split-section split-section--reverse" id="wellness">
+        <div class="split-section__media reveal-right">
+            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1000&q=80" alt="Artermision Wellness Studio — mindful movement" loading="lazy">
+        </div>
+        <div class="split-section__content reveal-left">
+            <span class="section-label">Movement &amp; Wellbeing</span>
+            <h2 class="section-title">Fitness as<br><em>Part of Wellness</em></h2>
+            <p class="split-section__text">
+                Our wellness studio and fitness space are curated for mindful movement. Premium equipment, soft lighting and a calm atmosphere designed to make movement feel like a ritual, not a routine.
+            </p>
+            <ul class="split-section__list">
+                <li>Wellness Gym</li>
+                <li>Yoga &amp; Pilates Studio</li>
+                <li>Personal Training</li>
+                <li>Guided Meditation</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         EXPERIENCES / LIFESTYLE
+    ============================================================ -->
+    <section class="experiences" id="experiences">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">The Retreat</span>
+                <h2 class="section-title">Rest, Ritual<br><em>&amp; Elevated Simplicity</em></h2>
+                <p class="section-desc">Every moment at Artermision is an invitation to slow down, to be present and to restore.</p>
+                <div class="retreat-intro">
+                    <p><strong>Create your own retreat and let us bring it to life.</strong></p>
+                    <p>Whether you are a Pilates instructor, yoga teacher, wellness practitioner, or simply envision hosting your own bespoke retreat, we invite you to create it with us. Our space offers the ideal setting to design and host personalised retreat experiences tailored to your vision — from mindful movement and wellness workshops to holistic rituals, recovery practices, and immersive wellbeing experiences.</p>
+                    <p>Set in a serene coastal destination enriched by the restorative benefits of natural thermal water, our hotel provides the perfect environment for meaningful gatherings designed around movement, rest, and reconnection. With elegant accommodation, wellness facilities, and a setting created to inspire calm and renewal, we offer the foundation for a retreat experience that feels effortless, elevated, and entirely your own.</p>
+                    <p>Bring your concept, your community, and your vision — and let us help you transform it into a thoughtfully curated retreat experience.</p>
+                </div>
+            </div>
+            <div class="experiences__grid">
+                <div class="exp-item exp-item--tall reveal">
+                    <img src="Suite_Bed.jpeg" alt="Artermision accommodation" loading="lazy">
+                    <div class="exp-item__caption">Accommodation</div>
+                </div>
+                <div class="exp-item reveal">
+                    <img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=700&q=80" alt="Spa and restoration" loading="lazy">
+                    <div class="exp-item__caption">Spa &amp; Restoration</div>
+                </div>
+                <div class="exp-item reveal">
+                    <img src="wellness_moments.jpg" alt="Wellness moments" loading="lazy">
+                    <div class="exp-item__caption">Wellness Moments</div>
+                </div>
+            </div>
+            <div class="retreat-intro retreat-intro--below reveal">
+                <p>Escape the pace of everyday life and reconnect with yourself through a refined wellness retreat combining mindful movement with the restorative power of natural thermal water. Our Pilates, Yoga &amp; Wellness Retreats are thoughtfully curated to restore balance in body, mind, and spirit — set in a serene coastal setting that invites you to slow down and live more consciously.</p>
+                <p>Begin your mornings with Pilates or sunrise yoga, soothe body and mind in thermal waters, and restore inner balance through breathwork, guided relaxation, and holistic wellness rituals — each element designed to leave you feeling grounded, renewed, and deeply restored.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         CONTACT
+    ============================================================ -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">Get in Touch</span>
+                <h2 class="section-title">Contact <em>Us</em></h2>
+                <p class="section-desc">We would love to hear from you. Send us a message and we will get back to you shortly.</p>
+            </div>
+            <div class="contact-section__layout">
+                <div class="contact-section__info reveal">
+                    <div class="contact-info-item">
+                        <span class="contact-info-item__label">Address</span>
+                        <span class="contact-info-item__value">Filellinon 5, Loutra Edipsou<br>34300, Greece</span>
+                    </div>
+                    <div class="contact-info-item">
+                        <span class="contact-info-item__label">Phone</span>
+                        <a href="tel:+302226022251" class="contact-info-item__value">+30 2226 022251</a>
+                    </div>
+                    <div class="contact-info-item">
+                        <span class="contact-info-item__label">Email</span>
+                        <a href="mailto:info@hotelartemision.gr" class="contact-info-item__value">info@hotelartemision.gr</a>
+                    </div>
+                    <div class="contact-info-item">
+                        <span class="contact-info-item__label">Follow</span>
+                        <a href="https://www.instagram.com/artemision_hotelspa/" target="_blank" rel="noopener noreferrer" class="contact-info-item__value contact-info-item__insta"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg> @artemision_hotelspa</a>
+                    </div>
+                </div>
+                <form class="contact-form reveal" id="contact-form" name="contact" action="https://formspree.io/f/xeevdapb" method="POST">
+                    <div class="contact-form__row">
+                        <div class="contact-form__field">
+                            <label for="cf-name">Full Name</label>
+                            <input type="text" id="cf-name" name="name" placeholder="Your name" required autocomplete="name">
+                        </div>
+                        <div class="contact-form__field">
+                            <label for="cf-email">Email</label>
+                            <input type="email" id="cf-email" name="email" placeholder="your@email.com" required autocomplete="email">
+                        </div>
+                    </div>
+                    <div class="contact-form__field">
+                        <label for="cf-phone">Phone <span class="contact-form__optional">(optional)</span></label>
+                        <input type="tel" id="cf-phone" name="phone" placeholder="+30 ..." autocomplete="tel">
+                    </div>
+                    <div class="contact-form__field">
+                        <label for="cf-message">Message</label>
+                        <textarea id="cf-message" name="message" rows="5" placeholder="How can we help you?" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn--dark">Send Message</button>
                 </form>
-                <p style="font-size: 0.9rem; color: var(--grey); margin-top: 1rem;">
-                    We respect your privacy. Unsubscribe anytime.
-                </p>
-            </div>
-
-            <!-- Careers Box -->
-            <div class="careers-container">
-                <h3>Join Our Team</h3>
-                <p>Love coffee, cocktails, and creating memorable experiences? We're always looking for passionate people to join us!</p>
-                <div class="job-positions">
-                    <div class="job-position" onclick="selectPosition(this, 'Potion Architect')">
-                        <h4>Potion Architects</h4>
-                        <p>Craft exceptional coffee and cocktails that make people smile</p>
-                    </div>
-                    <div class="job-position" onclick="selectPosition(this, 'Chief of Smiles')">
-                        <h4>Chief of Smiles</h4>
-                        <p>Deliver outstanding service and create a welcoming atmosphere</p>
-                    </div>
+                <div class="contact-form__success" id="contact-success" style="display:none;">
+                    <p class="contact-form__success-title">Thank you for reaching out.</p>
+                    <p class="contact-form__success-text">We have received your message and will be in touch shortly.</p>
                 </div>
-                <p style="font-size: 0.95rem; color: var(--grey); margin: 1.5rem 0 1rem 0;">
-                    👆 Select a position above to apply
-                </p>
-                <a href="javascript:void(0);" id="applyBtn" class="apply-btn" onclick="return false;">Apply Now</a>
-                <p style="font-size: 0.9rem; color: var(--grey); margin-top: 1rem;">
-                    Send your CV and tell us why you'd be perfect!
-                </p>
             </div>
         </div>
     </section>
 
-    <!-- Team Section -->
-    <section id="team">
-        <h2 class="section-title">The faces behind τρίϕατσο</h2>
-        
-        <!-- The Three Faces Group -->
-        <h3 style="color: var(--light-red); font-weight: bold; text-align: center; margin: 2rem 0 0.8rem 0; font-size: 1.5rem;">The Three Faces</h3>
-        <div class="team-grid">
-            <div class="team-member">
-                <div class="team-member-photo">
-                    <img src="konstantinos.jpg" alt="Κωνσταντίνος - Co-founder of τριϕατσο" loading="lazy">
+    <!-- ============================================================
+         FOOTER
+    ============================================================ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__top">
+                <div class="footer__brand">
+                    <img src="logo_without_back.png" alt="Artermision" class="footer__logo-img">
+                    <p class="footer__tagline">Wellness in Every Stay</p>
+                    <p class="footer__address">Filellinon 5, Loutra Edipsou, 34300, Greece</p>
                 </div>
-                <h3>Κωνσταντίνος</h3>
-            </div>
-            <div class="team-member">
-                <div class="team-member-photo">
-                    <img src="dimitris.jpg" alt="Δημήτρης - Co-founder of τριϕατσο" loading="lazy">
-                </div>
-                <h3>Δημήτρης</h3>
-            </div>
-            <div class="team-member">
-                <div class="team-member-photo">
-                    <img src="kokosjpg.jpg" alt="Κώστας - Co-founder of τριϕατσο" loading="lazy">
-                </div>
-                <h3>Κώστας</h3>
-            </div>
-        </div>
-
-        <!-- Chiefs of Smiles Group -->
-        <h3 style="color: var(--light-red); font-weight: bold; text-align: center; margin: 3.5rem 0 0.8rem 0; font-size: 1.5rem;">Chiefs of Smiles</h3>
-        <div class="team-grid">
-            <div class="team-member">
-                <div class="team-member-photo">
-                    <img src="thalasini.jpg" alt="Θαλασσινή - Chief of Smiles" loading="lazy">
-                </div>
-                <h3>Θαλασσινή</h3>
-            </div>
-            <div class="team-member">
-                <div class="team-member-photo">
-                    <!-- Add team member photo -->
-                    <span>Photo</span>
-                </div>
-                <h3>Name</h3>
-            </div>
-            <div class="team-member">
-                <div class="team-member-photo">
-                    <!-- Add team member photo -->
-                    <span>Photo</span>
-                </div>
-                <h3>Name</h3>
-            </div>
-        </div>
-
-        <!-- Potion Architects Group -->
-        <h3 style="color: var(--light-red); font-weight: bold; text-align: center; margin: 3.5rem 0 0.8rem 0; font-size: 1.5rem;">Potion Architects</h3>
-        <div class="team-grid">
-            <div class="team-member">
-                <div class="team-member-photo">
-                    <img src="ippokratis.jpg" alt="Ιπποκράτης - Potion Architect" loading="lazy">
-                </div>
-                <h3>Ιπποκράτης</h3>
-            </div>
-            <div class="team-member">
-                <div class="team-member-photo">
-                    <!-- Add team member photo -->
-                    <span>Photo</span>
-                </div>
-                <h3>Ιούλιος</h3>
-            </div>
-            <div class="team-member">
-                <div class="team-member-photo">
-                    <!-- Add team member photo -->
-                    <span>Photo</span>
-                </div>
-                <h3>Name</h3>
-            </div>
-        </div>
-    </section>
-
-    <!-- Gallery Section -->
-    <section id="gallery">
-        <h2 class="section-title">Gallery</h2>
-        <p class="section-subtitle">A glimpse into our world</p>
-        
-        <div class="gallery-grid">
-            <div class="gallery-item">
-                <img src="Screenshot 2025-11-19 174938.jpg" alt="Interior view of τριϕατσο cafe" loading="lazy">
-            </div>
-            <div class="gallery-item">
-                <img src="Screenshot 2025-11-19 175011.jpg" alt="Coffee and drinks at τριϕατσο" loading="lazy">
-            </div>
-            <div class="gallery-item">
-                <img src="Screenshot 2025-11-19 175032.jpg" alt="Atmosphere at τριϕατσο cafe" loading="lazy">
-            </div>
-            <div class="gallery-item">
-                <img src="trifatso_three_guys.jpg" alt="The three founders of τριϕατσο" loading="lazy">
-            </div>
-            <div class="gallery-item">
-                <img src="Screenshot 2025-11-20 092820.jpg" alt="τριϕατσο cafe experience" loading="lazy">
-            </div>
-            <div class="gallery-item">
-                <!-- Add gallery image 6 -->
-                <span>Gallery Photo 6</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2 class="section-title">Contact</h2>
-        <p class="section-subtitle">We'd love to hear from you</p>
-        
-        <div class="contact-content">
-            <div class="contact-form-container">
-                <h3>Contact τρίϕατσο</h3>
-                <form class="contact-form" action="https://formsubmit.co/trifatsoathens@gmail.com" method="POST" id="contactForm" novalidate>
-                    <!-- FormSubmit Configuration -->
-                    <input type="hidden" name="_subject" value="New message from τρίϕατσο website">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_template" value="table">
-                    <!-- Removed _next to stay on FormSubmit thank you page -->
-                    
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required minlength="2" aria-required="true">
+                <nav class="footer__nav" aria-label="Footer navigation">
+                    <div class="footer__nav-col">
+                        <h4>Experience</h4>
+                        <ul>
+                            <li><a href="#rooms">Rooms &amp; Suites</a></li>
+                            <li><a href="#spa">Spa</a></li>
+                            <li><a href="#pool">Pool</a></li>
+                            <li><a href="#wellness">Wellness</a></li>
+                            <li><a href="#experiences">Retreat</a></li>
+                        </ul>
                     </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required aria-required="true">
+                    <div class="footer__nav-col">
+                        <h4>Contact</h4>
+                        <ul>
+                            <li><a href="mailto:info@hotelartemision.gr">info@hotelartemision.gr</a></li>
+                            <li><a href="tel:+302226022251">+30 2226 022251</a></li>
+                            <li><a href="https://www.google.com/maps/place/Alsos,+Filellinon+5,+Loutra+Edipsou+343+00,+Greece/@38.8533158,23.0446513,769m/data=!3m2!1e3!4b1!4m6!3m5!1s0x14a0c98072898939:0xf8a76d7fb33e93a9!8m2!3d38.8535156!4d23.0471788!16s%2Fg%2F11cknfn_xj?entry=ttu&g_ep=EgoyMDI2MDQyMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">Filellinon 5, Loutra Edipsou, 34300, Greece</a></li>
+                        </ul>
                     </div>
-                    <div class="form-group">
-                        <label for="phone">Phone</label>
-                        <input type="tel" id="phone" name="phone" pattern="[0-9+\s()-]*">
+                    <div class="footer__nav-col">
+                        <h4>Follow</h4>
+                        <ul>
+                            <li><a href="https://www.instagram.com/artemision_hotelspa/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:0.5rem;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>Instagram</a></li>
+                            <li><a href="https://www.booking.com/searchresults.en-gb.html?ss=Artemision%2C+Loutra+Edipsou%2C+Central+Greece%2C+Greece&ssne=Sk%C3%A1la+Loutr%C3%B3n&ssne_untouched=Sk%C3%A1la+Loutr%C3%B3n&label=gen173nr-10CAEoggI46AdIM1gEaMABiAEBmAEzuAEXyAEM2AED6AEB-AEBiAIBqAIBuAKb8bPPBsACAdICJGIzYzFhZTE0LTYxMDYtNGZlNS1iNjRjLTVhZjg5OTJjZDljMtgCAeACAQ&aid=304142&lang=en-gb&sb=1&src_elem=sb&src=index&dest_id=318285&dest_type=hotel&ac_position=0&ac_click_type=b&ac_langcode=xu&ac_suggestion_list_length=4&search_selected=true&search_pageview_id=a1987a4dbed90624&ac_meta=GhBhMTk4N2E0ZGJlZDkwNjI0IAAoATICeHU6CmFydGVtaXNpb24%3D&checkin=2026-08-01&checkout=2026-08-09&group_adults=1&no_rooms=1&group_children=0" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:0.5rem;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M8 12h8M12 8v8"/></svg>Booking.com</a></li>
+                        </ul>
                     </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" required minlength="10" aria-required="true"></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn" id="submitBtn">SEND MESSAGE</button>
-                </form>
-
-                <div class="contact-info-text">
-                    <p style="font-style: italic; margin-bottom: 1.5rem;">
-                        Feel free to visit us... come by for a nice cup of coffee and a smile!
-                    </p>
-                    
-                    <p><strong>Our address is:</strong><br>
-                    <a href="https://maps.google.com/?q=Ευτυχίδου+42,+Athens,+Greece+11634" target="_blank">Ευτυχίδου 42, Athens, Greece 11634</a></p>
-                    
-                    <p><strong>Phone number:</strong><br>
-                    <a href="tel:+302107525759">+30 210 752 5759</a><br>
-                    <em style="font-size: 0.9rem; color: var(--grey);">For orders and other info</em></p>
-                    
-                    <p><strong>For events and reservations, write to us:</strong></p>
-                    <div class="social-icons">
-                        <a href="https://www.facebook.com/profile.php?id=61578121801432&ref=pl_edit_xav_ig_profile_page_web#" target="_blank" rel="noopener noreferrer" title="Facebook" aria-label="Visit our Facebook page">
-                            <img src="facebook logo.jpg" alt="Facebook" style="width: 35px; height: 35px;" loading="lazy">
-                        </a>
-                        <a href="https://www.instagram.com/trifatso/" target="_blank" rel="noopener noreferrer" title="Instagram" aria-label="Visit our Instagram page">
-                            <img src="download.jpg" alt="Instagram" style="width: 35px; height: 35px;" loading="lazy">
-                        </a>
-                    </div>
-                    
-                    <p style="margin-top: 1.5rem;"><strong>For any comments, questions, ideas or suggestions you might have:</strong><br>
-                    <strong>E-mail:</strong> <a href="mailto:trifatsoathens@gmail.com">trifatsoathens@gmail.com</a></p>
-                </div>
+                </nav>
             </div>
-
-            <div class="contact-map">
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3145.0!2d23.7487089!3d37.9674834!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a1bd386f3d800f%3A0x7fe552e60f14744f!2sTr%C3%ADphatso!5e0!3m2!1sen!2sgr!4v1700000000000!5m2!1sen!2sgr" 
-                    width="100%" 
-                    height="100%" 
-                    style="border:0; border-radius: 10px;" 
-                    allowfullscreen="" 
-                    loading="lazy" 
-                    referrerpolicy="no-referrer-when-downgrade"
-                    title="Google Maps location of τριϕατσο cafe">
-                </iframe>
+            <div class="footer__bottom">
+                <p>&copy; 2026 Artermision. All rights reserved.</p>
+                <p><a href="#" data-legal-modal="privacy">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="#" data-legal-modal="terms">Terms of Service</a></p>
             </div>
         </div>
-    </section>
-
-    <!-- Reservation Button -->
-    <div class="reservation-button">
-        <a href="mailto:trifatsoathens@gmail.com?subject=Table Reservation Request">📅 Book a Table</a>
-    </div>
-
-    <!-- Social Media Float Button -->
-    <div class="social-float" role="complementary" aria-label="Social media links">
-        <a href="https://www.facebook.com/profile.php?id=61578121801432&ref=pl_edit_xav_ig_profile_page_web#" target="_blank" rel="noopener noreferrer" title="Follow us on Facebook" aria-label="Follow us on Facebook">
-            <svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="30" cy="30" r="30" fill="#1877F2"/>
-                <path d="M33.5 31.5h5.5l1-6.5h-6.5v-4c0-2 0.5-3.5 3-3.5h3.5v-5.5c-0.6-0.1-2.7-0.5-5-0.5-5 0-8.5 3-8.5 8.5v4.5h-5.5v6.5h5.5v17h6.5v-17z" fill="white"/>
-            </svg>
-        </a>
-        <a href="https://www.instagram.com/trifatso/" target="_blank" rel="noopener noreferrer" title="Follow us on Instagram" aria-label="Follow us on Instagram">
-            <img src="download.jpg" alt="Instagram" loading="lazy">
-        </a>
-    </div>
-
-    <!-- Events Modal -->
-    <div class="events-modal" id="eventsModal" onclick="closeEvents()">
-        <div class="events-content" onclick="event.stopPropagation()">
-            <span class="events-close" onclick="closeEvents()">&times;</span>
-            <h2>Events at τρίϕατσο</h2>
-            
-            <div class="event-card">
-                <h3>EVERY SUNDAY</h3>
-                <div class="event-details">Live DJ & Party Vibes</div>
-                <div class="event-description">
-                    Join us every Sunday for an unforgettable night! Experience the best music, great atmosphere, 
-                    and amazing drinks. Whether you want to enjoy a coffee or an after-work drink, τρίϕατσο is the place to be.
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Menu Modal -->
-    <div class="menu-modal" id="menuModal" onclick="closeMenu()">
-        <div class="menu-content" onclick="event.stopPropagation()">
-            <span class="menu-close" onclick="closeMenu()">&times;</span>
-            <h2>τρίϕατσο Menu</h2>
-            <p class="menu-subtitle">Discover our selection of drinks and snacks</p>
-            
-            <div class="menu-categories">
-                <div class="menu-category">
-                    <h3>Coffee</h3>
-                    <ul class="menu-items">
-                        <li>Espresso</li>
-                        <li>Cappuccino</li>
-                        <li>Latte</li>
-                        <li>Americano</li>
-                        <li>Flat White</li>
-                        <li>Cold Brew</li>
-                    </ul>
-                </div>
-                
-                <div class="menu-category">
-                    <h3>Cocktails</h3>
-                    <ul class="menu-items">
-                        <li>Mojito</li>
-                        <li>Negroni</li>
-                        <li>Aperol Spritz</li>
-                        <li>Espresso Martini</li>
-                        <li>Old Fashioned</li>
-                        <li>Margarita</li>
-                    </ul>
-                </div>
-                
-                <div class="menu-category">
-                    <h3>Wine</h3>
-                    <ul class="menu-items">
-                        <li>Red Wine</li>
-                        <li>White Wine</li>
-                        <li>Rosé</li>
-                        <li>Prosecco</li>
-                        <li>Champagne</li>
-                    </ul>
-                </div>
-                
-                <div class="menu-category">
-                    <h3>Snacks</h3>
-                    <ul class="menu-items">
-                        <li>Bruschetta</li>
-                        <li>Cheese Platter</li>
-                        <li>Olives</li>
-                        <li>Nuts Mix</li>
-                        <li>Tiramisu</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Lightbox Modal -->
-    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-        <span class="lightbox-close">&times;</span>
-        <img class="lightbox-content" id="lightbox-img" onclick="event.stopPropagation()">
-    </div>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 τριϕατσο Cafe. All rights reserved.</p>
     </footer>
 
-    <script>
-        // Mobile Menu Toggle
-        function toggleMenu() {
-            const navLinks = document.getElementById('navLinks');
-            const menuToggle = document.querySelector('.menu-toggle');
-            const isActive = navLinks.classList.toggle('active');
-            
-            // Update ARIA attribute
-            if (menuToggle) {
-                menuToggle.setAttribute('aria-expanded', isActive);
-            }
-        }
+    <!-- ============================================================
+         ROOM MODALS
+    ============================================================ -->
 
-        // Close menu when clicking a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                const navLinks = document.getElementById('navLinks');
-                const menuToggle = document.querySelector('.menu-toggle');
-                navLinks.classList.remove('active');
-                if (menuToggle) {
-                    menuToggle.setAttribute('aria-expanded', 'false');
-                }
-            });
-        });
+    <!-- SUITES MODAL -->
+    <div class="room-modal" id="modal-suites" role="dialog" aria-modal="true" aria-labelledby="modal-suites-title" aria-hidden="true">
+        <div class="room-modal__backdrop"></div>
+        <div class="room-modal__panel">
+            <button class="room-modal__close" aria-label="Close">&times;</button>
+            <div class="room-modal__gallery">
+                <div class="room-modal__slides">
+                    <div class="room-modal__slide active"><img src="Suite_Bed.jpeg" alt="Suite Bed" loading="lazy"></div>
+                    <div class="room-modal__slide"><img src="Suite Living.jpeg" alt="Suite Living Area" loading="lazy"></div>
+                    <div class="room-modal__slide"><img src="suite shower.jpeg" alt="Suite Shower" loading="lazy"></div>
+                    <div class="room-modal__slide"><img src="suite Bathroom.jpeg" alt="Suite Bathroom" loading="lazy"></div>
+                </div>
+                <button class="room-modal__arrow room-modal__arrow--prev" aria-label="Previous photo">&#8592;</button>
+                <button class="room-modal__arrow room-modal__arrow--next" aria-label="Next photo">&#8594;</button>
+                <div class="room-modal__dots"></div>
+            </div>
+            <div class="room-modal__content">
+                <span class="room-modal__label">Premium Accommodation</span>
+                <h2 class="room-modal__title" id="modal-suites-title">Suites</h2>
+                <p class="room-modal__desc">Our suites are the pinnacle of the Artermision experience. Spacious, serene and meticulously designed, each suite offers a private sanctuary of quiet luxury — from the deep-soak bathtub to the private balcony overlooking the landscape. At 40 sq.m., each suite combines premium natural materials, bespoke furnishings and curated wellness amenities into a space designed for total restoration.</p>
+                <div class="room-modal__amenities">
+                    <h4 class="room-modal__amenities-title">Suite Amenities</h4>
+                    <ul class="room-modal__amenities-grid">
+                        <li>King-size bed with premium linens</li>
+                        <li>Private balcony or terrace</li>
+                        <li>Deep-soak bathtub</li>
+                        <li>Separate walk-in shower</li>
+                        <li>Luxury wellness amenity kit</li>
+                        <li>Hair dryer</li>
+                        <li>Smart TV &amp; entertainment</li>
+                        <li>In-room safe</li>
+                        <li>Air conditioning</li>
+                        <li>Daily housekeeping</li>
+                        <li>High-speed Wi-Fi</li>
+                    </ul>
+                </div>
+                <div class="room-modal__cta">
+                    <a href="#contact" class="btn btn--outline room-modal__reserve">Reserve This Suite</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        // Smooth scroll with offset for fixed nav
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    const offset = 80;
-                    const targetPosition = target.offsetTop - offset;
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
+    <!-- FAMILY ROOMS MODAL -->
+    <div class="room-modal" id="modal-family" role="dialog" aria-modal="true" aria-labelledby="modal-family-title" aria-hidden="true">
+        <div class="room-modal__backdrop"></div>
+        <div class="room-modal__panel">
+            <button class="room-modal__close" aria-label="Close">&times;</button>
+            <div class="room-modal__gallery">
+                <div class="room-modal__slides">
+                    <div class="room-modal__slide room-modal__slide--placeholder active"><span>Family Room — Photo 1</span></div>
+                    <div class="room-modal__slide room-modal__slide--placeholder"><span>Family Room — Photo 2</span></div>
+                    <div class="room-modal__slide room-modal__slide--placeholder"><span>Family Room — Photo 3</span></div>
+                    <div class="room-modal__slide room-modal__slide--placeholder"><span>Family Room — Photo 4</span></div>
+                </div>
+                <button class="room-modal__arrow room-modal__arrow--prev" aria-label="Previous photo">&#8592;</button>
+                <button class="room-modal__arrow room-modal__arrow--next" aria-label="Next photo">&#8594;</button>
+                <div class="room-modal__dots"></div>
+            </div>
+            <div class="room-modal__content">
+                <span class="room-modal__label">Family Accommodation</span>
+                <h2 class="room-modal__title" id="modal-family-title">Family Rooms</h2>
+                <p class="room-modal__desc">Our family rooms are designed to give every member of the family space, comfort and the feeling of a true retreat. At 40 sq.m., each unit comprises two separate rooms with a shared entrance and two private bathrooms — generous in layout, warm in atmosphere and thoughtfully equipped for the whole family to arrive, unwind and reconnect.</p>
+                <div class="room-modal__amenities">
+                    <h4 class="room-modal__amenities-title">Room Amenities</h4>
+                    <ul class="room-modal__amenities-grid">
+                        <li>Multiple beds configuration</li>
+                        <li>Spacious open layout</li>
+                        <li>Garden or pool view</li>
+                        <li>Large en-suite bathroom</li>
+                        <li>Walk-in shower</li>
+                        <li>Hair dryer</li>
+                        <li>Smart TV &amp; entertainment</li>
+                        <li>In-room safe</li>
+                        <li>Air conditioning</li>
+                        <li>Daily housekeeping</li>
+                        <li>Interconnecting option available</li>
+                        <li>High-speed Wi-Fi</li>
+                    </ul>
+                </div>
+                <div class="room-modal__cta">
+                    <a href="#contact" class="btn btn--outline room-modal__reserve">Reserve This Room</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        // Add active nav link on scroll
-        window.addEventListener('scroll', () => {
-            let current = '';
-            const sections = document.querySelectorAll('section');
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (pageYOffset >= (sectionTop - 150)) {
-                    current = section.getAttribute('id');
-                }
-            });
+    <!-- DOUBLE ROOMS MODAL -->
+    <div class="room-modal" id="modal-double" role="dialog" aria-modal="true" aria-labelledby="modal-double-title" aria-hidden="true">
+        <div class="room-modal__backdrop"></div>
+        <div class="room-modal__panel">
+            <button class="room-modal__close" aria-label="Close">&times;</button>
+            <div class="room-modal__gallery">
+                <div class="room-modal__slides">
+                    <div class="room-modal__slide room-modal__slide--placeholder active"><span>Double Room — Photo 1</span></div>
+                    <div class="room-modal__slide room-modal__slide--placeholder"><span>Double Room — Photo 2</span></div>
+                    <div class="room-modal__slide room-modal__slide--placeholder"><span>Double Room — Photo 3</span></div>
+                    <div class="room-modal__slide room-modal__slide--placeholder"><span>Double Room — Photo 4</span></div>
+                </div>
+                <button class="room-modal__arrow room-modal__arrow--prev" aria-label="Previous photo">&#8592;</button>
+                <button class="room-modal__arrow room-modal__arrow--next" aria-label="Next photo">&#8594;</button>
+                <div class="room-modal__dots"></div>
+            </div>
+            <div class="room-modal__content">
+                <span class="room-modal__label">Classic Accommodation</span>
+                <h2 class="room-modal__title" id="modal-double-title">Double Rooms</h2>
+                <p class="room-modal__desc">Refined, calm and beautifully considered. Our double rooms offer everything needed for a quiet, restorative stay. At 18 sq.m., each room combines soft natural light, premium bedding and elegant materials into a space that feels genuinely restful — not simply functional. Perfect for couples or solo travellers seeking quality and comfort.</p>
+                <div class="room-modal__amenities">
+                    <h4 class="room-modal__amenities-title">Room Amenities</h4>
+                    <ul class="room-modal__amenities-grid">
+                        <li>Double or twin bed option</li>
+                        <li>City or sea view</li>
+                        <li>En-suite bathroom</li>
+                        <li>Walk-in shower</li>
+                        <li>Premium bedding &amp; pillows</li>
+                        <li>Wellness amenity kit</li>
+                        <li>Hair dryer</li>
+                        <li>In-room safe</li>
+                        <li>Air conditioning</li>
+                        <li>Daily housekeeping</li>
+                        <li>High-speed Wi-Fi</li>
+                    </ul>
+                </div>
+                <div class="room-modal__cta">
+                    <a href="#contact" class="btn btn--outline room-modal__reserve">Reserve This Room</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === '#' + current) {
-                    link.classList.add('active');
-                }
-            });
-        });
+    <!-- SINGLE ROOMS MODAL -->
+    <div class="room-modal" id="modal-single" role="dialog" aria-modal="true" aria-labelledby="modal-single-title" aria-hidden="true">
+        <div class="room-modal__backdrop"></div>
+        <div class="room-modal__panel">
+            <button class="room-modal__close" aria-label="Close">&times;</button>
+            <div class="room-modal__gallery">
+                <div class="room-modal__slides">
+                    <div class="room-modal__slide room-modal__slide--placeholder active"><span>Single Room — Photo 1</span></div>
+                    <div class="room-modal__slide room-modal__slide--placeholder"><span>Single Room — Photo 2</span></div>
+                    <div class="room-modal__slide room-modal__slide--placeholder"><span>Single Room — Photo 3</span></div>
+                    <div class="room-modal__slide room-modal__slide--placeholder"><span>Single Room — Photo 4</span></div>
+                </div>
+                <button class="room-modal__arrow room-modal__arrow--prev" aria-label="Previous photo">&#8592;</button>
+                <button class="room-modal__arrow room-modal__arrow--next" aria-label="Next photo">&#8594;</button>
+                <div class="room-modal__dots"></div>
+            </div>
+            <div class="room-modal__content">
+                <span class="room-modal__label">Solo Retreat</span>
+                <h2 class="room-modal__title" id="modal-single-title">Single Rooms</h2>
+                <p class="room-modal__desc">For the solo traveller who values quality of experience above all. Our single rooms are intimate, beautifully appointed and designed around the needs of one. At 18 sq.m., every detail is considered, every comfort provided — a private, serene space that makes solo travel feel like a genuine luxury.</p>
+                <div class="room-modal__amenities">
+                    <h4 class="room-modal__amenities-title">Room Amenities</h4>
+                    <ul class="room-modal__amenities-grid">
+                        <li>Single bed with premium linens</li>
+                        <li>Garden or courtyard view</li>
+                        <li>En-suite bathroom</li>
+                        <li>Walk-in shower</li>
+                        <li>Wellness amenity kit</li>
+                        <li>Hair dryer</li>
+                        <li>In-room safe</li>
+                        <li>Air conditioning</li>
+                        <li>Daily housekeeping</li>
+                        <li>Complimentary water &amp; tea</li>
+                        <li>High-speed Wi-Fi</li>
+                    </ul>
+                </div>
+                <div class="room-modal__cta">
+                    <a href="#contact" class="btn btn--outline room-modal__reserve">Reserve This Room</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        // Lightbox functionality
-        function openLightbox(imgSrc) {
-            const lightbox = document.getElementById('lightbox');
-            const lightboxImg = document.getElementById('lightbox-img');
-            lightboxImg.src = imgSrc;
-            lightbox.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
+    <!-- TRIPLE ROOMS MODAL -->
+    <div class="room-modal" id="modal-triple" role="dialog" aria-modal="true" aria-labelledby="modal-triple-title" aria-hidden="true">
+        <div class="room-modal__backdrop"></div>
+        <div class="room-modal__panel">
+            <button class="room-modal__close" aria-label="Close">&times;</button>
+            <div class="room-modal__gallery">
+                <div class="room-modal__slides">
+                    <div class="room-modal__slide room-modal__slide--placeholder active"><span>Triple Room &mdash; Photo 1</span></div>
+                    <div class="room-modal__slide room-modal__slide--placeholder"><span>Triple Room &mdash; Photo 2</span></div>
+                    <div class="room-modal__slide room-modal__slide--placeholder"><span>Triple Room &mdash; Photo 3</span></div>
+                    <div class="room-modal__slide room-modal__slide--placeholder"><span>Triple Room &mdash; Photo 4</span></div>
+                </div>
+                <button class="room-modal__arrow room-modal__arrow--prev" aria-label="Previous photo">&#8592;</button>
+                <button class="room-modal__arrow room-modal__arrow--next" aria-label="Next photo">&#8594;</button>
+                <div class="room-modal__dots"></div>
+            </div>
+            <div class="room-modal__content">
+                <span class="room-modal__label">Shared Accommodation</span>
+                <h2 class="room-modal__title" id="modal-triple-title">Triple Rooms</h2>
+                <p class="room-modal__desc">Our triple rooms offer the perfect balance of space, comfort and refined design for small groups or families travelling together. At 40 sq.m., each room features 1 double bed and 2 additional armchairs that convert to beds — a thoughtful layout and the same elevated aesthetic that runs throughout Artermision, ensuring every guest enjoys quality rest in a genuinely beautiful environment.</p>
+                <div class="room-modal__amenities">
+                    <h4 class="room-modal__amenities-title">Room Amenities</h4>
+                    <ul class="room-modal__amenities-grid">
+                        <li>1 double bed &amp; 2 convertible armchair beds</li>
+                        <li>Spacious open layout</li>
+                        <li>City or garden view</li>
+                        <li>En-suite bathroom</li>
+                        <li>Walk-in shower</li>
+                        <li>Premium bedding &amp; pillows</li>
+                        <li>Hair dryer</li>
+                        <li>Smart TV &amp; entertainment</li>
+                        <li>In-room safe</li>
+                        <li>Air conditioning</li>
+                        <li>Daily housekeeping</li>
+                        <li>Ample wardrobe space</li>
+                        <li>High-speed Wi-Fi</li>
+                    </ul>
+                </div>
+                <div class="room-modal__cta">
+                    <a href="#contact" class="btn btn--outline room-modal__reserve">Reserve This Room</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        function closeLightbox() {
-            const lightbox = document.getElementById('lightbox');
-            lightbox.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
+    <!-- ACCESSIBLE ROOMS MODAL -->
+    <div class="room-modal" id="modal-accessible" role="dialog" aria-modal="true" aria-labelledby="modal-accessible-title" aria-hidden="true">
+        <div class="room-modal__backdrop"></div>
+        <div class="room-modal__panel">
+            <button class="room-modal__close" aria-label="Close">&times;</button>
+            <div class="room-modal__gallery">
+                <div class="room-modal__slides">
+                    <div class="room-modal__slide active"><img src="Accessible.jpeg" alt="Accessible Room" loading="lazy"></div>
+                    <div class="room-modal__slide"><img src="accessible bathroom.jpeg" alt="Accessible Bathroom" loading="lazy"></div>
+                    <div class="room-modal__slide"><img src="accessible mirror.jpeg" alt="Accessible Room Mirror" loading="lazy"></div>
+                </div>
+                <button class="room-modal__arrow room-modal__arrow--prev" aria-label="Previous photo">&#8592;</button>
+                <button class="room-modal__arrow room-modal__arrow--next" aria-label="Next photo">&#8594;</button>
+                <div class="room-modal__dots"></div>
+            </div>
+            <div class="room-modal__content">
+                <span class="room-modal__label">Accessible Accommodation</span>
+                <h2 class="room-modal__title" id="modal-accessible-title">Accessible Rooms</h2>
+                <p class="room-modal__desc">At Artermision, accessibility is not an afterthought &mdash; it is part of the design. Our accessible rooms are fully adapted to meet the needs of guests with mobility requirements, offering the same level of premium comfort, refined aesthetics and restorative atmosphere as every other room in the hotel. At 20 sq.m., located on the 2nd floor with easy lift access, every guest is guaranteed an equally elevated stay.</p>
+                <div class="room-modal__amenities">
+                    <h4 class="room-modal__amenities-title">Room Amenities</h4>
+                    <ul class="room-modal__amenities-grid">
+                        <li>Adjustable bed height</li>
+                        <li>Roll-in wet room shower</li>
+                        <li>Fold-down shower seat</li>
+                        <li>Grab bars throughout</li>
+                        <li>Hair dryer</li>
+                        <li>Smart TV &amp; entertainment</li>
+                        <li>Air conditioning</li>
+                        <li>Daily housekeeping</li>
+                        <li>High-speed Wi-Fi</li>
+                    </ul>
+                </div>
+                <div class="room-modal__cta">
+                    <a href="#contact" class="btn btn--outline room-modal__reserve">Reserve This Room</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        // Add click event to all gallery images
-        document.querySelectorAll('.gallery-item img').forEach(img => {
-            img.parentElement.addEventListener('click', () => {
-                openLightbox(img.src);
-            });
-        });
+    <script src="js/main.js"></script>
 
-        // Close lightbox on Escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                closeLightbox();
-                closeMenu();
-                closeEvents();
-            }
-        });
+    <!-- ============================================================
+         LEGAL MODALS
+    ============================================================ -->
 
-        // Menu modal functions
-        function openMenu() {
-            const menuModal = document.getElementById('menuModal');
-            menuModal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
+    <!-- PRIVACY POLICY -->
+    <div class="legal-modal" id="legal-modal-privacy" role="dialog" aria-modal="true" aria-labelledby="legal-modal-privacy-title" aria-hidden="true">
+        <div class="legal-modal__backdrop"></div>
+        <div class="legal-modal__panel">
+            <button class="legal-modal__close" aria-label="Close">&times;</button>
+            <div class="legal-modal__body">
+                <span class="legal-modal__label">Artermision Hotel &amp; Spa</span>
+                <h2 class="legal-modal__title" id="legal-modal-privacy-title">Privacy Policy</h2>
+                <p class="legal-modal__updated">Last updated: April 2026</p>
 
-        function closeMenu() {
-            const menuModal = document.getElementById('menuModal');
-            menuModal.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
+                <h3>1. Who We Are</h3>
+                <p>Artermision Hotel &amp; Spa ("we", "us", "our") is located at Filellinon 5, Loutra Edipsou, 34300, Evia, Greece. We are committed to protecting the personal information of our guests and website visitors in accordance with Regulation (EU) 2016/679 (GDPR) and applicable Greek law.</p>
 
-        // Events modal functions
-        function openEvents() {
-            const eventsModal = document.getElementById('eventsModal');
-            eventsModal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
+                <h3>2. Information We Collect</h3>
+                <p>We may collect the following personal data: name, email address, phone number, postal address, payment details (processed securely via third-party providers), and stay preferences. We also collect standard website usage data (cookies, IP addresses, browser type) through our analytics tools.</p>
 
-        function closeEvents() {
-            const eventsModal = document.getElementById('eventsModal');
-            eventsModal.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
+                <h3>3. How We Use Your Data</h3>
+                <p>Your data is used to process reservations, communicate booking confirmations, personalise your stay, respond to enquiries, send newsletters (only with your consent), and meet our legal obligations.</p>
 
-        // Form validation and submission
-        const contactForm = document.getElementById('contactForm');
-        if (contactForm) {
-            contactForm.addEventListener('submit', function(e) {
-                const submitBtn = document.getElementById('submitBtn');
-                
-                // Add loading state
-                if (submitBtn) {
-                    submitBtn.textContent = 'SENDING...';
-                    submitBtn.disabled = true;
-                    submitBtn.classList.add('loading');
-                    submitBtn.style.opacity = '0.6';
-                }
-            });
-        }
+                <h3>4. Data Sharing</h3>
+                <p>We do not sell your personal data. We may share it with booking platforms (e.g. Booking.com), payment processors, and service providers strictly necessary for your reservation. All third parties are bound by appropriate data protection agreements.</p>
 
-        // Lazy loading fallback for older browsers
-        if ('loading' in HTMLImageElement.prototype) {
-            // Browser supports lazy loading
-            console.log('Native lazy loading supported');
-        } else {
-            // Fallback for browsers that don't support lazy loading
-            const images = document.querySelectorAll('img[loading="lazy"]');
-            const imageObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        img.src = img.src;
-                        observer.unobserve(img);
-                    }
-                });
-            });
-            
-            images.forEach(img => imageObserver.observe(img));
-        }
+                <h3>5. Data Retention</h3>
+                <p>Reservation and guest records are retained for up to 5 years as required by Greek fiscal and hospitality regulations. Marketing data is retained until you withdraw consent.</p>
 
-        // FAQ Toggle
-        function toggleFAQ(element) {
-            const faqItem = element.parentElement;
-            const wasActive = faqItem.classList.contains('active');
-            
-            // Close all FAQ items
-            document.querySelectorAll('.faq-item').forEach(item => {
-                item.classList.remove('active');
-            });
-            
-            // Open clicked item if it wasn't active
-            if (!wasActive) {
-                faqItem.classList.add('active');
-            }
-        }
+                <h3>6. Your Rights</h3>
+                <p>Under GDPR you have the right to access, correct, delete, or restrict processing of your personal data. To exercise your rights, please contact us at <a href="mailto:info@artermision.gr">info@artermision.gr</a>.</p>
 
-        // Job Position Selection
-        let selectedPosition = '';
+                <h3>7. Cookies</h3>
+                <p>Our website uses essential cookies for functionality and, with your consent, analytics cookies to improve your experience. You may adjust cookie preferences through your browser settings.</p>
 
-        function selectPosition(element, position) {
-            // Remove selected class from all positions
-            document.querySelectorAll('.job-position').forEach(pos => {
-                pos.classList.remove('selected');
-            });
-            
-            // Add selected class to clicked position
-            element.classList.add('selected');
-            selectedPosition = position;
-            
-            // Enable apply button
-            const applyBtn = document.getElementById('applyBtn');
-            applyBtn.classList.add('active');
-            applyBtn.href = `mailto:trifatsoathens@gmail.com?subject=Job Application - ${position} - τρίϕατσο`;
-            applyBtn.onclick = null; // Remove the preventDefault
-        }
+                <h3>8. Contact</h3>
+                <p>For any privacy-related questions, contact our Data Protection Officer at <a href="mailto:info@artermision.gr">info@artermision.gr</a> or by post at the address above.</p>
+            </div>
+        </div>
+    </div>
 
-        // Before/After Slider
-        const slider = document.getElementById('comparisonSlider');
-        const handle = document.getElementById('sliderHandle');
-        const afterImage = document.getElementById('afterImage');
+    <!-- TERMS OF SERVICE -->
+    <div class="legal-modal" id="legal-modal-terms" role="dialog" aria-modal="true" aria-labelledby="legal-modal-terms-title" aria-hidden="true">
+        <div class="legal-modal__backdrop"></div>
+        <div class="legal-modal__panel">
+            <button class="legal-modal__close" aria-label="Close">&times;</button>
+            <div class="legal-modal__body">
+                <span class="legal-modal__label">Artermision Hotel &amp; Spa</span>
+                <h2 class="legal-modal__title" id="legal-modal-terms-title">Terms of Service</h2>
+                <p class="legal-modal__updated">Last updated: April 2026</p>
 
-        if (slider && handle && afterImage) {
-            let isDragging = false;
+                <h3>1. Reservations</h3>
+                <p>All reservations are subject to availability. A booking is confirmed only upon receipt of a written confirmation from Artermision Hotel &amp; Spa or an authorised booking platform. Guests must be 18 years of age or older to make a reservation.</p>
 
-            function updateSlider(x) {
-                const rect = slider.getBoundingClientRect();
-                const position = Math.max(0, Math.min(x - rect.left, rect.width));
-                const percentage = (position / rect.width) * 100;
-                
-                handle.style.left = percentage + '%';
-                afterImage.style.clipPath = `polygon(0 0, ${percentage}% 0, ${percentage}% 100%, 0 100%)`;
-            }
+                <h3>2. Check-In &amp; Check-Out</h3>
+                <p>Standard check-in time is 14:00 (2 PM) and check-out is 12:00 (noon). Early check-in and late check-out may be arranged subject to availability and may incur an additional charge.</p>
 
-            handle.addEventListener('mousedown', () => {
-                isDragging = true;
-            });
+                <h3>3. Cancellation &amp; Modification Policy</h3>
+                <p>Cancellations made more than 7 days prior to arrival will receive a full refund. Cancellations within 7 days of arrival will be charged one night's accommodation. No-shows will be charged the full reservation amount. Please refer to your booking confirmation for rate-specific terms.</p>
 
-            document.addEventListener('mousemove', (e) => {
-                if (isDragging) {
-                    updateSlider(e.clientX);
-                }
-            });
+                <h3>4. Payment</h3>
+                <p>A valid credit or debit card is required at check-in. Payment in full is due upon arrival unless otherwise agreed. We accept Visa, Mastercard, and cash in Euro (€).</p>
 
-            document.addEventListener('mouseup', () => {
-                isDragging = false;
-            });
+                <h3>5. Hotel Rules</h3>
+                <p>Guests are expected to respect the peace and comfort of fellow guests. Smoking is not permitted inside any hotel building. Pets are not permitted on the premises. The hotel accepts no liability for loss of personal valuables unless stored in the in-room safe or hotel safety deposit box.</p>
 
-            slider.addEventListener('click', (e) => {
-                updateSlider(e.clientX);
-            });
+                <h3>6. Spa &amp; Wellness Facilities</h3>
+                <p>Use of spa and wellness facilities is subject to separate booking and health declarations where applicable. Certain treatments may not be suitable for guests with specific medical conditions. Please consult our spa team prior to booking.</p>
 
-            // Touch support for mobile
-            handle.addEventListener('touchstart', () => {
-                isDragging = true;
-            });
+                <h3>7. Limitation of Liability</h3>
+                <p>Artermision Hotel &amp; Spa shall not be liable for any indirect, incidental, or consequential damages arising from your stay, except where required by applicable Greek consumer law.</p>
 
-            document.addEventListener('touchmove', (e) => {
-                if (isDragging && e.touches.length > 0) {
-                    updateSlider(e.touches[0].clientX);
-                }
-            });
+                <h3>8. Governing Law</h3>
+                <p>These terms are governed by the laws of Greece. Any disputes shall be subject to the exclusive jurisdiction of the courts of Chalcis, Evia, Greece.</p>
 
-            document.addEventListener('touchend', () => {
-                isDragging = false;
-            });
-        }
+                <h3>9. Contact</h3>
+                <p>For questions regarding these terms, please contact us at <a href="mailto:info@artermision.gr">info@artermision.gr</a> or call <a href="tel:+302226022251">+30 2226 022251</a>.</p>
+            </div>
+        </div>
+    </div>
 
-        // Update opening hours status dynamically
-        function updateHoursStatus() {
-            const now = new Date();
-            const day = now.getDay();
-            const hour = now.getHours();
-            const minute = now.getMinutes();
-            const currentTime = hour + minute / 60;
-
-            // Define hours (0 = Sunday, 1 = Monday, etc.)
-            const hours = {
-                1: { open: 8, close: 24, name: 'Monday' },
-                2: { open: 8, close: 24, name: 'Tuesday' },
-                3: { open: 8, close: 24, name: 'Wednesday' },
-                4: { open: 8, close: 24, name: 'Thursday' },
-                5: { open: 8, close: 26, name: 'Friday' }, // 26 = 2am next day
-                6: { open: 9, close: 26, name: 'Saturday' },
-                0: { open: 9, close: 26, name: 'Sunday' }
-            };
-
-            const todayHours = hours[day];
-            const statusElement = document.querySelector('.hours-status');
-            
-            if (statusElement) {
-                if (currentTime >= todayHours.open && currentTime < todayHours.close) {
-                    const closingHour = todayHours.close > 24 ? todayHours.close - 24 : todayHours.close;
-                    const closingTime = closingHour === 24 ? '12:00 AM' : 
-                                      closingHour === 26 ? '02:00 AM' :
-                                      closingHour + ':00 ' + (closingHour < 12 ? 'AM' : 'PM');
-                    statusElement.innerHTML = `🟢 OPEN NOW - Closes at ${closingTime}`;
-                    statusElement.style.background = 'linear-gradient(135deg, #4CAF50, #45a049)';
-                } else {
-                    statusElement.innerHTML = '🔴 CLOSED - See hours below';
-                    statusElement.style.background = 'linear-gradient(135deg, #9E9E9E, #757575)';
-                }
-            }
-
-            // Highlight today in the hours list
-            const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-            const todayName = dayNames[day];
-            
-            document.querySelectorAll('.hours-item').forEach(item => {
-                item.classList.remove('today');
-                if (item.querySelector('.hours-day').textContent.includes(todayName)) {
-                    item.classList.add('today');
-                    item.querySelector('.hours-day').textContent = todayName + ' (Today)';
-                }
-            });
-        }
-
-        // Call on page load
-        updateHoursStatus();
-        // Update every minute
-        setInterval(updateHoursStatus, 60000);
-
-    </script>
 </body>
 </html>
